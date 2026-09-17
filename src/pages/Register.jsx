@@ -1,0 +1,328 @@
+import { Link, useNavigate } from "react-router-dom";
+import {
+  ArrowLeft,
+  Building2,
+  Mail,
+  MapPin,
+  Phone,
+  User,
+  Lock,
+} from "lucide-react";
+import { useState } from "react";
+
+export default function Register() {
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    name: "",
+    organizationName: "",
+    organizationAddress: "",
+    mobileNumber: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    terms: false,
+  });
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+
+    setFormData({
+      ...formData,
+      [name]: type === "checkbox" ? checked : value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (formData.password !== formData.confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+
+    if (!formData.terms) {
+      alert("Please accept the Terms & Conditions.");
+      return;
+    }
+
+    console.log(formData);
+
+    alert("Registration successful!");
+    navigate("/login");
+  };
+
+  return (
+    <div className="min-h-screen bg-[#030712] px-4 py-8 text-white">
+
+      {/* Back */}
+      <Link
+        to="/"
+        className="mx-auto mb-6 flex max-w-6xl items-center gap-2 text-sm text-gray-400 hover:text-cyan-400"
+      >
+        <ArrowLeft size={17} />
+        Back to Optiora
+      </Link>
+
+      {/* Main Box */}
+      <div className="mx-auto flex max-w-6xl overflow-hidden rounded-3xl border border-white/10 bg-[#080d18] shadow-2xl">
+
+        {/* ================= LEFT FORM ================= */}
+        <div className="w-full p-6 sm:p-10 lg:w-[58%]">
+
+          <div className="mb-7">
+            <h1 className="text-3xl font-bold">
+              Create your account
+            </h1>
+
+            <p className="mt-2 text-sm text-gray-400">
+              Start your 2-month free trial with Optiora.
+            </p>
+          </div>
+
+          <form onSubmit={handleSubmit} className="space-y-4">
+
+            {/* Full Name */}
+            <Input
+              icon={<User size={17} />}
+              label="Full Name"
+              name="name"
+              placeholder="Enter your full name"
+              value={formData.name}
+              onChange={handleChange}
+            />
+
+            {/* Organization Name */}
+            <Input
+              icon={<Building2 size={17} />}
+              label="Organization Name"
+              name="organizationName"
+              placeholder="Enter organization name"
+              value={formData.organizationName}
+              onChange={handleChange}
+            />
+
+            {/* Organization Address */}
+            <div>
+              <label className="mb-1.5 block text-sm text-gray-300">
+                Organization Address
+              </label>
+
+              <div className="relative">
+                <MapPin
+                  size={17}
+                  className="absolute left-4 top-4 text-gray-500"
+                />
+
+                <textarea
+                  name="organizationAddress"
+                  value={formData.organizationAddress}
+                  onChange={handleChange}
+                  placeholder="Enter complete organization address"
+                  rows="2"
+                  required
+                  className="w-full resize-none rounded-xl border border-white/10 bg-black/20 py-3 pl-11 pr-4 text-sm outline-none placeholder:text-gray-600 focus:border-cyan-400/50"
+                />
+              </div>
+            </div>
+
+            {/* Mobile + Email */}
+            <div className="grid gap-4 sm:grid-cols-2">
+
+              <Input
+                icon={<Phone size={17} />}
+                label="Mobile Number"
+                name="mobileNumber"
+                type="tel"
+                placeholder="10-digit number"
+                value={formData.mobileNumber}
+                onChange={handleChange}
+              />
+
+              <Input
+                icon={<Mail size={17} />}
+                label="Email Address"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+                value={formData.email}
+                onChange={handleChange}
+              />
+
+            </div>
+
+            {/* Password */}
+            <div className="grid gap-4 sm:grid-cols-2">
+
+              <Input
+                icon={<Lock size={17} />}
+                label="Password"
+                name="password"
+                type="password"
+                placeholder="Create password"
+                value={formData.password}
+                onChange={handleChange}
+              />
+
+              <Input
+                icon={<Lock size={17} />}
+                label="Confirm Password"
+                name="confirmPassword"
+                type="password"
+                placeholder="Confirm password"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+              />
+
+            </div>
+
+            {/* Terms */}
+            <label className="flex items-start gap-2 pt-1 text-xs text-gray-400">
+              <input
+                type="checkbox"
+                name="terms"
+                checked={formData.terms}
+                onChange={handleChange}
+                className="mt-0.5 accent-cyan-400"
+              />
+
+              <span>
+                I agree to the{" "}
+                <span className="text-cyan-400">
+                  Terms & Conditions
+                </span>{" "}
+                and Privacy Policy.
+              </span>
+            </label>
+
+            {/* Button */}
+            <button
+              type="submit"
+              className="mt-2 w-full rounded-xl bg-cyan-400 py-3.5 text-sm font-semibold text-black transition hover:bg-cyan-300"
+            >
+              Create Account
+            </button>
+
+          </form>
+
+          {/* Login */}
+          <p className="mt-6 text-center text-sm text-gray-400">
+            Already have an account?{" "}
+            <Link
+              to="/login"
+              className="font-medium text-cyan-400 hover:underline"
+            >
+              Login
+            </Link>
+          </p>
+
+        </div>
+
+        {/* ================= RIGHT BRAND ================= */}
+        <div className="relative hidden w-[42%] overflow-hidden border-l border-white/10 bg-gradient-to-br from-cyan-400/10 via-[#08111e] to-[#030712] lg:flex">
+
+          {/* Glow */}
+          <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-cyan-400/10 blur-[100px]" />
+
+          <div className="relative flex flex-col justify-between p-12">
+
+            {/* Logo */}
+            <div>
+              <Link to="/" className="text-3xl font-bold tracking-tight">
+                Optiora<span className="text-cyan-400">.</span>
+              </Link>
+
+              <div className="mt-10">
+                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
+                  Intelligent Business Growth
+                </p>
+
+                <h2 className="text-4xl font-bold leading-tight">
+                  Turn your data
+                  <br />
+                  into smarter
+                  <br />
+                  <span className="text-cyan-400">
+                    decisions.
+                  </span>
+                </h2>
+
+                <p className="mt-6 max-w-sm text-sm leading-7 text-gray-400">
+                  Optiora helps businesses understand their data,
+                  predict what comes next, and make better decisions
+                  with AI-powered insights.
+                </p>
+              </div>
+            </div>
+
+            {/* Bottom */}
+            <div>
+              <div className="mb-6 h-px w-full bg-white/10" />
+
+              <div className="grid grid-cols-2 gap-4">
+
+                <div>
+                  <p className="text-2xl font-bold text-white">
+                    AI
+                  </p>
+                  <p className="mt-1 text-xs text-gray-500">
+                    Powered Insights
+                  </p>
+                </div>
+
+                <div>
+                  <p className="text-2xl font-bold text-white">
+                    2 Month
+                  </p>
+                  <p className="mt-1 text-xs text-gray-500">
+                    Free Trial
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+
+/* Reusable Input Component */
+
+function Input({
+  icon,
+  label,
+  name,
+  type = "text",
+  placeholder,
+  value,
+  onChange,
+}) {
+  return (
+    <div>
+      <label className="mb-1.5 block text-sm text-gray-300">
+        {label}
+      </label>
+
+      <div className="relative">
+        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">
+          {icon}
+        </div>
+
+        <input
+          type={type}
+          name={name}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+          required
+          className="w-full rounded-xl border border-white/10 bg-black/20 py-3 pl-11 pr-4 text-sm outline-none placeholder:text-gray-600 focus:border-cyan-400/50"
+        />
+      </div>
+    </div>
+  );
+}

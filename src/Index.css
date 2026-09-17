@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #030712;
+  color: white;
+}
+
+::selection {
+  background: #7c3aed;
+  color: white;
+}
+
+/* Gradient text */
+
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    #a855f7,
+    #6366f1,
+    #3b82f6
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Grid background */
+
+.hero-grid {
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px
+    );
+
+  background-size: 50px 50px;
+}
+
+.section-grid {
+  background-image:
+    linear-gradient(
+      rgba(99, 102, 241, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(99, 102, 241, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 60px 60px;
+}
+
+/* Orbit */
+
+.orbit {
+  border: 1px solid rgba(99, 102, 241, 0.35);
+}
+
+/* Card hover */
+
+.card-glow:hover {
+  box-shadow:
+    0 0 30px rgba(124, 58, 237, 0.18);
+}
