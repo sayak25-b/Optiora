@@ -7,6 +7,7 @@ import IntelligenceEngine from "./components/IntelligenceEngine";
 import DashboardPreview from "./components/DashboardPreview";
 import BusinessSection from "./components/BusinessSection";
 import Footer from "./components/Footer";
+import About from "./pages/About";
 
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -36,6 +37,7 @@ function App() {
 
         {/* Landing Page */}
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
 
         {/* Authentication */}
         <Route path="/login" element={<Login />} />

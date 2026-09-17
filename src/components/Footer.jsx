@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import Logo from "./Logo";
 
@@ -56,9 +57,7 @@ function Footer() {
             </h3>
 
             <div className="space-y-3 text-xs">
-              <a href="#about" className="block hover:text-white">
-                About Us
-              </a>
+              <Link to="/About">About Us</Link>
 
               <a href="#" className="block hover:text-white">
                 Careers
