@@ -65,7 +65,7 @@ export default function Register() {
       </Link>
 
       {/* Main Box */}
-      <div className="mx-auto flex max-w-6xl overflow-hidden rounded-3xl border border-white/10 bg-[#080d18] shadow-2xl">
+      <div className="mx-auto flex max-w-6xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-[#080d18] shadow-2xl lg:flex-row">
 
         {/* ================= LEFT FORM ================= */}
         <div className="w-full p-6 sm:p-10 lg:w-[58%]">
@@ -219,25 +219,31 @@ export default function Register() {
         </div>
 
         {/* ================= RIGHT BRAND ================= */}
-        <div className="relative hidden w-[42%] overflow-hidden border-l border-white/10 bg-gradient-to-br from-cyan-400/10 via-[#08111e] to-[#030712] lg:flex">
+        <div className="relative flex w-full flex-col overflow-hidden border-t border-white/10 bg-gradient-to-br from-cyan-400/10 via-[#08111e] to-[#030712] lg:w-[42%] lg:border-l lg:border-t-0">
 
           {/* Glow */}
           <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-cyan-400/10 blur-[100px]" />
 
-          <div className="relative flex flex-col justify-between p-12">
+          {/* Brand Content */}
+          <div className="relative flex h-full flex-col justify-between p-8 sm:p-10 lg:p-12">
 
-            {/* Logo */}
+            {/* Logo + Main Text */}
             <div>
-              <Link to="/" className="text-3xl font-bold tracking-tight">
+
+              <Link
+                to="/"
+                className="text-3xl font-bold tracking-tight"
+              >
                 Optiora<span className="text-cyan-400">.</span>
               </Link>
 
-              <div className="mt-10">
-                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
+              <div className="mt-8 lg:mt-12">
+
+                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-cyan-400">
                   Intelligent Business Growth
                 </p>
 
-                <h2 className="text-4xl font-bold leading-tight">
+                <h2 className="text-3xl font-bold leading-tight sm:text-4xl">
                   Turn your data
                   <br />
                   into smarter
@@ -247,19 +253,21 @@ export default function Register() {
                   </span>
                 </h2>
 
-                <p className="mt-6 max-w-sm text-sm leading-7 text-gray-400">
+                <p className="mt-5 max-w-md text-sm leading-6 text-gray-400">
                   Optiora helps businesses understand their data,
                   predict what comes next, and make better decisions
                   with AI-powered insights.
                 </p>
+
               </div>
             </div>
 
-            {/* Bottom */}
-            <div>
+            {/* Bottom Stats */}
+            <div className="mt-10">
+
               <div className="mb-6 h-px w-full bg-white/10" />
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-6">
 
                 <div>
                   <p className="text-2xl font-bold text-white">
@@ -272,7 +280,7 @@ export default function Register() {
 
                 <div>
                   <p className="text-2xl font-bold text-white">
-                    2 Month
+                    2 Months
                   </p>
                   <p className="mt-1 text-xs text-gray-500">
                     Free Trial
@@ -280,6 +288,7 @@ export default function Register() {
                 </div>
 
               </div>
+
             </div>
 
           </div>
@@ -291,7 +300,7 @@ export default function Register() {
 }
 
 
-/* Reusable Input Component */
+/* ================= REUSABLE INPUT COMPONENT ================= */
 
 function Input({
   icon,
@@ -304,11 +313,13 @@ function Input({
 }) {
   return (
     <div>
+
       <label className="mb-1.5 block text-sm text-gray-300">
         {label}
       </label>
 
       <div className="relative">
+
         <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">
           {icon}
         </div>
@@ -322,6 +333,7 @@ function Input({
           required
           className="w-full rounded-xl border border-white/10 bg-black/20 py-3 pl-11 pr-4 text-sm outline-none placeholder:text-gray-600 focus:border-cyan-400/50"
         />
+
       </div>
     </div>
   );
