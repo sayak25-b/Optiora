@@ -65,13 +65,14 @@ function Footer({ onContactClick }) {
             </h3>
 
             <div className="space-y-3 text-xs">
-              <Link
-                to="/documentation"
-                className="block transition hover:text-white"
-              >
-                Documentation
-              </Link>
-
+              <a
+            href="/Documentation/Optiora_Documentation.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block transition hover:text-white"
+>
+  Documentation
+</a>
              <Link
               to="/guides"
               className="block transition hover:text-white"
