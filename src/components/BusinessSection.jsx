@@ -1,153 +1,144 @@
 import {
-  Boxes,
-  ShoppingBag,
   Store,
   Utensils,
+  Boxes,
+  ShoppingBag,
 } from "lucide-react";
 
 function BusinessSection() {
-
-  const businesses = [
-    {
-      title: "Retail Stores",
-      text: "Track sales, inventory and customer trends.",
-      icon: ShoppingBag,
-    },
-    {
-      title: "Restaurants",
-      text: "Reduce food waste and increase profitability.",
-      icon: Utensils,
-    },
-    {
-      title: "Wholesalers",
-      text: "Predict demand and manage stock better.",
-      icon: Boxes,
-    },
-    {
-      title: "Local Shops",
-      text: "Make smarter decisions and grow consistently.",
-      icon: Store,
-    },
-  ];
-
   return (
     <section
       id="about"
-      className="bg-white py-16 text-slate-950"
+      className="relative overflow-hidden bg-cover bg-center py-16 sm:py-20"
+      style={{
+        backgroundImage: "url('/images/business.jpg')",
+      }}
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      {/* Background Overlay */}
+      <div className="absolute inset-0 bg-white/85" />
 
-        <div className="grid gap-10 lg:grid-cols-[1fr_260px] lg:items-center">
+      {/* Soft Background Glow */}
+      <div className="pointer-events-none absolute -left-40 top-10 h-80 w-80 rounded-full bg-violet-300/20 blur-[100px]" />
 
-          {/* Left */}
+      <div className="pointer-events-none absolute -right-40 bottom-0 h-80 w-80 rounded-full bg-cyan-300/20 blur-[100px]" />
+
+      {/* Content */}
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+
+        <div className="grid items-center gap-10 lg:grid-cols-[1fr_360px] lg:gap-12">
+
+          {/* ================= LEFT ================= */}
+
           <div>
 
-            <p className="text-xs font-semibold uppercase tracking-widest text-violet-600">
-              Built for growing businesses
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-violet-600">
+              Built for Growing Businesses
             </p>
 
-            <h2 className="mt-3 text-3xl font-bold">
+            <h2 className="max-w-2xl text-4xl font-bold leading-tight tracking-tight text-slate-950 sm:text-5xl">
               Who Can Benefit from Optiora?
             </h2>
 
-            <div className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+            {/* Business Types */}
+            <div className="mt-9 grid gap-7 sm:grid-cols-2">
 
-              {businesses.map((business) => {
-                const Icon = business.icon;
+              <BusinessItem
+                icon={<Store size={27} />}
+                title="Retail Stores"
+                description="Track sales, inventory and customer trends."
+              />
 
-                return (
-                  <div
-                    key={business.title}
-                    className="flex gap-4"
-                  >
+              <BusinessItem
+                icon={<Utensils size={27} />}
+                title="Restaurants"
+                description="Reduce food waste and increase profitability."
+              />
 
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-violet-100 text-violet-600">
-                      <Icon size={22} />
-                    </div>
+              <BusinessItem
+                icon={<Boxes size={27} />}
+                title="Wholesalers"
+                description="Predict demand and manage stock better."
+              />
 
-                    <div>
-                      <h3 className="text-sm font-semibold">
-                        {business.title}
-                      </h3>
-
-                      <p className="mt-1 text-xs leading-5 text-slate-500">
-                        {business.text}
-                      </p>
-                    </div>
-
-                  </div>
-                );
-              })}
+              <BusinessItem
+                icon={<ShoppingBag size={27} />}
+                title="Local Shops"
+                description="Make smarter decisions and grow consistently."
+              />
 
             </div>
+
           </div>
 
-          {/* Growth Score */}
-          <div className="rounded-2xl bg-slate-950 p-6 text-white shadow-2xl">
+          {/* ================= SCORE CARD ================= */}
 
-            <div className="text-center text-sm font-semibold">
-              Business Growth Score
-            </div>
+          <div className="relative">
 
-            <div className="mt-5 flex justify-center">
+            {/* Card Glow */}
+            <div className="absolute inset-0 rounded-[28px] bg-violet-400/20 blur-3xl" />
 
-              <div className="relative flex h-32 w-32 items-center justify-center">
+            <div className="relative rounded-[28px] border border-white/10 bg-[#020617]/95 px-7 py-7 text-center shadow-2xl backdrop-blur-xl sm:px-8">
+
+              <h3 className="text-xl font-semibold text-white">
+                Business Growth Score
+              </h3>
+
+              {/* Score Circle */}
+              <div className="relative mx-auto mt-7 flex h-32 w-32 items-center justify-center">
 
                 <svg
-                  viewBox="0 0 100 100"
                   className="absolute inset-0 h-full w-full -rotate-90"
+                  viewBox="0 0 120 120"
                 >
                   <circle
-                    cx="50"
-                    cy="50"
-                    r="40"
+                    cx="60"
+                    cy="60"
+                    r="50"
                     fill="none"
-                    stroke="rgba(255,255,255,0.1)"
-                    strokeWidth="7"
+                    stroke="rgb(51 65 85)"
+                    strokeWidth="9"
                   />
 
                   <circle
-                    cx="50"
-                    cy="50"
-                    r="40"
+                    cx="60"
+                    cy="60"
+                    r="50"
                     fill="none"
-                    stroke="#4ade80"
-                    strokeWidth="7"
-                    strokeDasharray="251"
-                    strokeDashoffset="45"
+                    stroke="rgb(52 211 153)"
+                    strokeWidth="9"
                     strokeLinecap="round"
+                    strokeDasharray="314"
+                    strokeDashoffset="56"
                   />
                 </svg>
 
-                <div className="text-center">
+                <div className="relative">
 
-                  <div className="text-3xl font-bold">
+                  <p className="text-4xl font-bold text-white">
                     82
-                  </div>
+                  </p>
 
-                  <div className="text-[9px] text-slate-500">
+                  <p className="text-xs text-slate-500">
                     /100
-                  </div>
+                  </p>
 
                 </div>
 
               </div>
 
-            </div>
-
-            <div className="text-center">
-
-              <div className="text-sm font-semibold text-emerald-400">
+              <p className="mt-5 text-lg font-semibold text-emerald-400">
                 ↑ Healthy Growth
-              </div>
-
-              <p className="mt-2 text-xs leading-5 text-slate-400">
-                Your business is growing well!
-                Focus on customer retention to improve
-                even more.
               </p>
 
-              <button className="mt-4 rounded-lg border border-white/20 px-5 py-2 text-xs transition hover:bg-white/10">
+              <p className="mx-auto mt-3 max-w-xs text-sm leading-6 text-slate-400">
+                Your business is growing well! Focus on
+                customer retention to improve even more.
+              </p>
+
+              <button
+                type="button"
+                className="mt-6 rounded-xl border border-white/15 px-6 py-2.5 text-sm font-medium text-white transition hover:border-cyan-400/50 hover:bg-cyan-400/10"
+              >
                 Improve Now →
               </button>
 
@@ -156,8 +147,40 @@ function BusinessSection() {
           </div>
 
         </div>
+
       </div>
     </section>
+  );
+}
+
+
+/* ================= BUSINESS ITEM ================= */
+
+function BusinessItem({
+  icon,
+  title,
+  description,
+}) {
+  return (
+    <div className="flex gap-4">
+
+      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-violet-100 text-violet-600">
+        {icon}
+      </div>
+
+      <div>
+
+        <h3 className="text-lg font-semibold text-slate-950 sm:text-xl">
+          {title}
+        </h3>
+
+        <p className="mt-1.5 text-sm leading-6 text-slate-500 sm:text-base">
+          {description}
+        </p>
+
+      </div>
+
+    </div>
   );
 }
 

@@ -3,9 +3,18 @@ import { ArrowRight, Check, X } from "lucide-react";
 function Comparison() {
   return (
     <section
-      id="comparison"
-      className="relative overflow-hidden bg-white py-24"
+      className="relative overflow-hidden bg-cover bg-center py-24"
+      style={{
+        backgroundImage: "url('/images/gg.jpg')",
+      }}
     >
+      {/* ================= DARK/LIGHT OVERLAY ================= */}
+      <div className="absolute inset-0 bg-white/85" />
+
+      {/* ================= SOFT GLOW ================= */}
+      <div className="pointer-events-none absolute -left-40 top-10 h-96 w-96 rounded-full bg-violet-300/20 blur-[120px]" />
+
+      <div className="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-cyan-300/20 blur-[120px]" />
       {/* ================= BACKGROUND DESIGN ================= */}
 
       {/* Soft purple glow */}
@@ -118,7 +127,7 @@ function Comparison() {
             <div className="grid items-center gap-5 md:grid-cols-[1fr_auto_1fr]">
 
               {/* TRADITIONAL */}
-              <div className="rounded-3xl border border-slate-200 bg-white/80 p-7 shadow-[0_15px_50px_rgba(15,23,42,0.06)] backdrop-blur-xl">
+              <div className="rounded-3xl border border-slate-200 bg-yellow-100/80 p-7 shadow-[0_15px_50px_rgba(15,23,42,0.06)] backdrop-blur-xl">
 
                 <h3 className="text-2xl font-semibold text-slate-950">
                   Traditional Analytics
@@ -185,7 +194,7 @@ function Comparison() {
               </div>
 
               {/* OPTIORA */}
-              <div className="relative overflow-hidden rounded-3xl border border-cyan-100 bg-white/90 p-7 shadow-[0_15px_50px_rgba(15,23,42,0.08)] backdrop-blur-xl">
+              <div className="relative overflow-hidden rounded-3xl border border-cyan-100 bg-green-100/90 p-7 shadow-[0_15px_50px_rgba(15,23,42,0.08)] backdrop-blur-xl">
 
                 {/* Card logo glow */}
                 <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-cyan-200/30 blur-3xl" />
