@@ -4,7 +4,7 @@ function Logo() {
   return (
     <Link to="/" className="inline-flex items-center">
       <img
-        src="/logo1.png"
+        src="/logo.png"
         alt="Optiora"
         className="h-9 w-auto object-contain"
       />
