@@ -114,12 +114,14 @@ function Footer({ onContactClick }) {
 
             <div className="space-y-3 text-xs">
 
-              <a
-                href="#"
-                className="block hover:text-white"
-              >
-                Documentation
-              </a>
+            <a
+            href="/Documentation/Optiora_Documentation.pdf"
+             target="_blank"
+            rel="noopener noreferrer"
+            className="block transition hover:text-white"
+            >
+            Documentation
+            </a>
 
               <a
                 href="#"
@@ -128,12 +130,12 @@ function Footer({ onContactClick }) {
                 Guides
               </a>
 
-              <a
-                href="#"
+              <Link
+                to="/faq"
                 className="block hover:text-white"
               >
                 FAQs
-              </a>
+              </Link>
 
               <a
                 href="#"
@@ -188,19 +190,19 @@ function Footer({ onContactClick }) {
 
           <div className="flex gap-6">
 
-            <a
-              href="#"
-              className="hover:text-white"
-            >
+            <Link
+             to="/privacy-policy"
+            className="hover:text-white transition"
+           >
               Privacy Policy
-            </a>
+            </Link>
 
-            <a
-              href="#"
-              className="hover:text-white"
-            >
-              Terms of Service
-            </a>
+          <Link
+          to="/terms"
+           className="hover:text-white transition"
+          >
+            Terms of Service
+          </Link>
 
           </div>
 

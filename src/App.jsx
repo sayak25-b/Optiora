@@ -9,6 +9,10 @@ import IntelligenceEngine from "./components/IntelligenceEngine";
 import DashboardPreview from "./components/DashboardPreview";
 import BusinessSection from "./components/BusinessSection";
 import Blog from "./pages/Blog";
+import FAQ from "./pages/FAQ";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Terms from "./pages/Terms";
+
 import Footer from "./components/Footer";
 
 import About from "./pages/About";
@@ -56,9 +60,18 @@ function App() {
         {/* Blog */}
         <Route path="/blog" element={<Blog />} />
 
+        {/* FAQ */}
+        <Route path="/faq" element={<FAQ />} />
+
+        {/* Privacy Policy */}
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+
         {/* Authentication */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+
+        {/* Terms of Service */}
+        <Route path="/terms" element={<Terms />} />
 
       </Routes>
     </div>
