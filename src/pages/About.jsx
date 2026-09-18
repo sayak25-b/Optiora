@@ -35,7 +35,7 @@ function TeamCarousel() {
       instagram: "https://www.instagram.com",
     },
     {
-      name: "Ritam",
+      name: "Ritam Manna",
       role: "Frontend Developer",
       image: "/team/ritam.jpg",
       description:
@@ -45,7 +45,7 @@ function TeamCarousel() {
       instagram: "https://www.instagram.com",
     },
     {
-      name: "Arpan",
+      name: "Arpan Santra",
       role: "Machine Learning Developer",
       image: "/team/arpan.jpg",
       description:
@@ -55,7 +55,7 @@ function TeamCarousel() {
       instagram: "https://www.instagram.com",
     },
     {
-      name: "Habib",
+      name: "Sk. Habib Hossain",
       role: "Testing & Integration",
       image: "/team/habib.jpg",
       description:
