@@ -31,7 +31,7 @@ function Navbar() {
   ];
 
   return (
-    <nav className="absolute left-0 right-0 top-0 z-50">
+    <nav className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#030712]/80 backdrop-blur-xl">
 
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
 
