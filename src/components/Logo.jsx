@@ -9,7 +9,7 @@ function Logo() {
         className="h-9 w-auto object-contain"
       />
       <span className="text-xl font-bold tracking-tight text-white">
-        PTIORA<span className="text-cyan-400">.</span>
+        OPTIORA<span className="text-cyan-400">.</span>
       </span>
     </Link>
   );
