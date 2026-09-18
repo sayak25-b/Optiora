@@ -9,7 +9,223 @@ import {
   Eye,
   ArrowRight,
 } from "lucide-react";
+import { useState } from "react";
+import {
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 
+import {
+  FaLinkedinIn,
+  FaGithub,
+  FaInstagram,
+} from "react-icons/fa";
+function TeamCarousel() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const team = [
+    {
+      name: "Sayak Bhattacharya",
+      role: "Backend & API Developer",
+      image: "/team/sayak.jpg",
+      description:
+        "Responsible for backend architecture, APIs, server-side development, and system integration.",
+      linkedin: "https://www.linkedin.com",
+      github: "https://github.com",
+      instagram: "https://www.instagram.com",
+    },
+    {
+      name: "Ritam",
+      role: "Frontend Developer",
+      image: "/team/ritam.jpg",
+      description:
+        "Focused on creating responsive interfaces, reusable components, and a smooth user experience.",
+      linkedin: "https://www.linkedin.com",
+      github: "https://github.com",
+      instagram: "https://www.instagram.com",
+    },
+    {
+      name: "Arpan",
+      role: "Machine Learning Developer",
+      image: "/team/arpan.jpg",
+      description:
+        "Works on machine-learning models, data preparation, predictions, and AI-powered features.",
+      linkedin: "https://www.linkedin.com",
+      github: "https://github.com",
+      instagram: "https://www.instagram.com",
+    },
+    {
+      name: "Habib",
+      role: "Testing & Integration",
+      image: "/team/habib.jpg",
+      description:
+        "Focused on application testing, integration, validation, and maintaining overall product quality.",
+      linkedin: "https://www.linkedin.com",
+      github: "https://github.com",
+      instagram: "https://www.instagram.com",
+    },
+  ];
+
+  const nextPerson = () => {
+    setCurrentIndex((prev) =>
+      prev === team.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const previousPerson = () => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? team.length - 1 : prev - 1
+    );
+  };
+
+  return (
+    <div className="mt-12">
+
+      {/* ================= DESKTOP ================= */}
+      <div className="hidden gap-6 md:grid md:grid-cols-2 lg:grid-cols-4">
+
+        {team.map((person) => (
+          <TeamCard
+            key={person.name}
+            person={person}
+          />
+        ))}
+
+      </div>
+
+      {/* ================= MOBILE ================= */}
+      <div className="md:hidden">
+
+        <div className="relative mx-auto max-w-sm">
+
+          {/* Card */}
+          <TeamCard person={team[currentIndex]} />
+
+          {/* Navigation Buttons */}
+          <div className="mt-5 flex items-center justify-center gap-3">
+
+            <button
+              onClick={previousPerson}
+              aria-label="Previous team member"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-400 transition hover:border-cyan-400/40 hover:bg-cyan-400/10 hover:text-cyan-400"
+            >
+              <ChevronLeft size={18} />
+            </button>
+
+            {/* Dots */}
+            <div className="flex items-center gap-2 px-2">
+              {team.map((person, index) => (
+                <button
+                  key={person.name}
+                  onClick={() => setCurrentIndex(index)}
+                  aria-label={`Show ${person.name}`}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    currentIndex === index
+                      ? "w-6 bg-cyan-400"
+                      : "w-2 bg-white/20 hover:bg-white/40"
+                  }`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={nextPerson}
+              aria-label="Next team member"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-400 transition hover:border-cyan-400/40 hover:bg-cyan-400/10 hover:text-cyan-400"
+            >
+              <ChevronRight size={18} />
+            </button>
+
+          </div>
+
+          {/* Counter */}
+          <p className="mt-3 text-center text-xs text-slate-600">
+            {currentIndex + 1} / {team.length}
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+  );
+}
+function TeamCard({ person }) {
+  return (
+    <div className="group overflow-hidden rounded-3xl border border-white/10 bg-[#080d18] transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30 hover:shadow-xl hover:shadow-cyan-400/5">
+
+      {/* Image */}
+      <div className="relative aspect-[4/4.5] overflow-hidden bg-slate-900">
+
+        <img
+          src={person.image}
+          alt={person.name}
+          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+        />
+
+        {/* Image Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#080d18] via-transparent to-transparent opacity-80" />
+
+      </div>
+
+      {/* Content */}
+      <div className="p-5">
+
+        <h3 className="text-lg font-semibold text-white">
+          {person.name}
+        </h3>
+
+        <p className="mt-1 text-xs font-medium text-cyan-400">
+          {person.role}
+        </p>
+
+        <p className="mt-3 text-xs leading-6 text-slate-500">
+          {person.description}
+        </p>
+
+        {/* Social Icons */}
+        <div className="mt-5 flex items-center gap-2">
+
+          {/* LinkedIn */}
+          <a
+            href={person.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${person.name} LinkedIn`}
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-500 transition hover:border-cyan-400/30 hover:bg-cyan-400/10 hover:text-cyan-400"
+          >
+            <FaLinkedinIn size={14} />
+          </a>
+
+          {/* GitHub */}
+          <a
+            href={person.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${person.name} GitHub`}
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-500 transition hover:border-cyan-400/30 hover:bg-cyan-400/10 hover:text-cyan-400"
+          >
+            <FaGithub size={15} />
+          </a>
+
+          {/* Instagram */}
+          <a
+            href={person.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${person.name} Instagram`}
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-500 transition hover:border-cyan-400/30 hover:bg-cyan-400/10 hover:text-cyan-400"
+          >
+            <FaInstagram size={15} />
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+  );
+}
 export default function About() {
   const features = [
     {
@@ -38,36 +254,7 @@ export default function About() {
     },
   ];
 
-  const team = [
-    {
-      name: "Sayak Bhattacharya",
-      role: "Backend & API Developer",
-      image: "/team/sayak.jpg",
-      description:
-        "Responsible for backend development, REST APIs, database integration, testing, and deployment.",
-    },
-    {
-      name: "Ritam Manna",
-      role: "Frontend Developer",
-      image: "/team/ritam.jpg",
-      description:
-        "Responsible for the user interface, responsive design, React components, and frontend integration.",
-    },
-    {
-      name: "Arpan Santra",
-      role: "Machine Learning Developer",
-      image: "/team/arpan.jpg",
-      description:
-        "Responsible for developing the machine learning models and integrating predictive intelligence into Optiora.",
-    },
-    {
-      name: "Sk. Habib Hossain",
-      role: "Testing & Integration",
-      image: "/team/habib.jpg",
-      description:
-        "Responsible for application testing, feature validation, integration, and overall system quality.",
-    },
-  ];
+
 
   return (
     <div className="min-h-screen bg-[#030712] text-white">
@@ -288,71 +475,30 @@ export default function About() {
         </div>
       </section>
 
-      {/* ================= MEET THE TEAM ================= */}
-      <section className="px-4 py-20 sm:px-6 lg:px-8">
+   {/* Meet the Team */}
+<section className="border-t border-white/10 px-6 py-20 lg:px-8">
+  <div className="mx-auto max-w-7xl">
 
-        <div className="mx-auto max-w-6xl">
+    {/* Heading */}
+    <div className="mx-auto max-w-2xl text-center">
+      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
+        MMET THE TEAM
+      </p>
 
-          <div className="text-center">
+      <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+        The People Behind Optiora
+      </h2>
 
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
-              Meet the Team
-            </p>
+      <p className="mt-4 text-sm leading-7 text-slate-400">
+       Optiora is developed by a team passionate about technology, data, artificial intelligence, and building
+       practical solutions for smarter business growth. 
+      </p>
+    </div>
 
-            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-              The people behind Optiora
-            </h2>
+    <TeamCarousel />
 
-            <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-gray-400">
-              Optiora is developed by a team passionate about technology,
-              artificial intelligence, and building practical solutions
-              for smarter business decisions.
-            </p>
-
-          </div>
-
-          {/* Team Cards */}
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-
-            {team.map((member) => (
-              <div
-                key={member.name}
-                className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-5 text-center transition duration-300 hover:-translate-y-2 hover:border-cyan-400/30"
-              >
-
-                {/* Image */}
-                <div className="mx-auto h-44 w-44 overflow-hidden rounded-2xl border border-white/10 bg-[#08111e]">
-
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                  />
-
-                </div>
-
-                {/* Name */}
-                <h3 className="mt-6 text-lg font-bold">
-                  {member.name}
-                </h3>
-
-                {/* Role */}
-                <p className="mt-2 text-sm font-medium text-cyan-400">
-                  {member.role}
-                </p>
-
-                {/* Description */}
-                <p className="mt-4 text-xs leading-6 text-gray-500">
-                  {member.description}
-                </p>
-
-              </div>
-            ))}
-
-          </div>
-
-        </div>
-      </section>
+  </div>
+</section>
 
       {/* ================= TECHNOLOGY ================= */}
       <section className="px-4 py-16 sm:px-6 lg:px-8">

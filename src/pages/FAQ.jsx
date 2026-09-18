@@ -420,7 +420,7 @@ function FAQ() {
                 </div>
 
                 <Link
-                  to="/contact"
+                  to="/"
                   className="inline-flex items-center rounded-xl bg-cyan-400 px-5 py-3 text-sm font-semibold text-[#030712] transition hover:bg-cyan-300"
                 >
                   Contact Us

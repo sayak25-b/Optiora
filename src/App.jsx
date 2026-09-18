@@ -12,6 +12,7 @@ import Blog from "./pages/Blog";
 import FAQ from "./pages/FAQ";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
+import Guides from "./pages/Guides"; 
 
 import Footer from "./components/Footer";
 
@@ -72,6 +73,9 @@ function App() {
 
         {/* Terms of Service */}
         <Route path="/terms" element={<Terms />} />
+
+        {/* Guides */}
+        <Route path="/guides" element={<Guides />} />
 
       </Routes>
     </div>
