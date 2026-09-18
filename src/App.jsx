@@ -1,5 +1,7 @@
 import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
 
+import ContactPanel from "./components/ContactPanel";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Comparison from "./components/Comparison";
@@ -7,12 +9,14 @@ import IntelligenceEngine from "./components/IntelligenceEngine";
 import DashboardPreview from "./components/DashboardPreview";
 import BusinessSection from "./components/BusinessSection";
 import Footer from "./components/Footer";
-import About from "./pages/About";
 
+import About from "./pages/About";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 
 function Home() {
+  const [contactOpen, setContactOpen] = useState(false);
+
   return (
     <>
       <Navbar />
@@ -25,7 +29,14 @@ function Home() {
         <BusinessSection />
       </main>
 
-      <Footer />
+      <Footer
+        onContactClick={() => setContactOpen(true)}
+      />
+
+      <ContactPanel
+        isOpen={contactOpen}
+        onClose={() => setContactOpen(false)}
+      />
     </>
   );
 }
@@ -37,6 +48,8 @@ function App() {
 
         {/* Landing Page */}
         <Route path="/" element={<Home />} />
+
+        {/* About */}
         <Route path="/about" element={<About />} />
 
         {/* Authentication */}
