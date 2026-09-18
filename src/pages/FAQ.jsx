@@ -239,15 +239,14 @@ function FAQ() {
       <header className="relative z-10 border-b border-white/10 bg-[#030712]/80 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
 
-          <Link to="/" className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-cyan-400 text-lg font-black text-[#030712]">
-              O
-            </div>
-
-            <span className="text-xl font-bold tracking-tight">
-              Optiora<span className="text-cyan-400">.</span>
-            </span>
-          </Link>
+          
+            <Link to="/" className="flex items-center">
+  <img
+    src="/logo.png"
+    alt="Optiora"
+    className="h-9 w-auto object-contain"
+  /> OPTIORA<span className="text-cyan-400">.</span>
+</Link>
 
           <Link
             to="/"
@@ -421,7 +420,7 @@ function FAQ() {
                 </div>
 
                 <Link
-                  to="/"
+                  to="/contact"
                   className="inline-flex items-center rounded-xl bg-cyan-400 px-5 py-3 text-sm font-semibold text-[#030712] transition hover:bg-cyan-300"
                 >
                   Contact Us

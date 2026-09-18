@@ -20,10 +20,10 @@ function Navbar() {
       label: "Intelligence",
       href: "#intelligence",
     },
-    {
+    /**{
       label: "Pricing",
       href: "#pricing",
-    },
+    },**/
     {
       label: "About",
       href: "#about",

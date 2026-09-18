@@ -139,7 +139,7 @@ export default function ContactPanel({ isOpen, onClose }) {
               </p>
 
               <p className="mt-1 text-xs text-gray-300">
-                hello@optiora.com
+                optioraofficial@gmail.com
               </p>
             </div>
 
@@ -152,7 +152,7 @@ export default function ContactPanel({ isOpen, onClose }) {
               </p>
 
               <p className="mt-1 text-xs text-gray-300">
-                +91 00000 00000
+                +91 53698 21345
               </p>
             </div>
 
