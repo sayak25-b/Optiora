@@ -8,6 +8,7 @@ import Comparison from "./components/Comparison";
 import IntelligenceEngine from "./components/IntelligenceEngine";
 import DashboardPreview from "./components/DashboardPreview";
 import BusinessSection from "./components/BusinessSection";
+import Blog from "./pages/Blog";
 import Footer from "./components/Footer";
 
 import About from "./pages/About";
@@ -51,6 +52,9 @@ function App() {
 
         {/* About */}
         <Route path="/about" element={<About />} />
+
+        {/* Blog */}
+        <Route path="/blog" element={<Blog />} />
 
         {/* Authentication */}
         <Route path="/login" element={<Login />} />

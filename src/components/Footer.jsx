@@ -94,12 +94,12 @@ function Footer({ onContactClick }) {
                 Contact Us
               </button>
 
-              <a
-                href="#"
+              <Link
+                to="/blog"
                 className="block hover:text-white"
               >
-                Blog
-              </a>
+              Blog
+              </Link>
 
             </div>
 
