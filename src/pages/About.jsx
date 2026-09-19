@@ -499,7 +499,51 @@ export default function About() {
 
   </div>
 </section>
+{/* Project Mentor */}
+<section className="border-t border-white/10 bg-[#050a14] px-6 py-20 sm:px-10">
+  <div className="mx-auto max-w-6xl text-center">
+    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-400">
+      Project Guidance
+    </p>
 
+    <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+      Under the Guidance of
+    </h2>
+
+    <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-gray-400 sm:text-base">
+      We are grateful for the valuable guidance, support, and encouragement
+      provided throughout the development of Optiora.
+    </p>
+
+    <div className="mx-auto mt-10 max-w-md rounded-2xl border border-cyan-400/20 bg-white/[0.03] p-8 shadow-xl">
+      {/* Mentor Image */}
+      {/*<div className="mx-auto h-28 w-28 overflow-hidden rounded-full border-2 border-cyan-400/40 bg-cyan-400/10">
+        <img
+          src="/team/mentor.jpg"
+          alt="Project Mentor"
+          className="h-full w-full object-cover"
+        />
+      </div>*/}
+
+      {/* Mentor Details */}
+      <h3 className="mt-6 text-xl font-bold text-white">
+        Prof. Suity Roy
+      </h3>
+
+      <p className="mt-2 text-sm font-medium text-cyan-400">
+        Project Mentor
+      </p>
+
+      <p className="mt-2 text-sm text-gray-400">
+        Department of Computer Science & Engineering
+      </p>
+
+      <p className="mt-1 text-sm text-gray-500">
+        College of Engineering & Management, Kolaghat
+      </p>
+    </div>
+  </div>
+</section>
       {/* ================= TECHNOLOGY ================= */}
       <section className="px-4 py-16 sm:px-6 lg:px-8">
 
