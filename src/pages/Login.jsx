@@ -24,10 +24,9 @@ export default function Login() {
 
     console.log(formData);
 
-    alert("Login successful! Dashboard will be connected next.");
+    //alert("Login successful! Dashboard will be connected next.");
 
-    // Later:
-    // navigate("/dashboard");
+      window.location.href = "https://optiora-puce.vercel.app";
   };
 
   return (
