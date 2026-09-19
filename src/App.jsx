@@ -13,6 +13,8 @@ import FAQ from "./pages/FAQ";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 import Guides from "./pages/Guides"; 
+import SupportPanel from "./components/SupportPanel";
+
 
 import Footer from "./components/Footer";
 
@@ -22,6 +24,7 @@ import Register from "./pages/Register";
 
 function Home() {
   const [contactOpen, setContactOpen] = useState(false);
+  const [supportOpen, setSupportOpen] = useState(false);
 
   return (
     <>
@@ -37,12 +40,18 @@ function Home() {
 
       <Footer
         onContactClick={() => setContactOpen(true)}
+        onSupportClick={() => setSupportOpen(true)}
       />
 
       <ContactPanel
         isOpen={contactOpen}
         onClose={() => setContactOpen(false)}
       />
+      <SupportPanel
+  isOpen={supportOpen}
+  onClose={() => setSupportOpen(false)}
+  onContactClick={() => setContactOpen(true)}
+/>
     </>
   );
 }

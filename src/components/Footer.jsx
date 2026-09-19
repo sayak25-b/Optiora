@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import Logo from "./Logo";
 import { FaLinkedinIn, FaInstagram, FaGithub } from "react-icons/fa";
 
-function Footer({ onContactClick }) {
+function Footer({ onContactClick, onSupportClick }) {
   return (
     <footer className="bg-[#030712] text-slate-400">
       <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
@@ -35,12 +35,12 @@ function Footer({ onContactClick }) {
                 About Us
               </Link>
 
-              <a
+              {/*<a
                 href="#"
                 className="block transition hover:text-white"
               >
                 Careers
-              </a>
+              </a>*/}
 
               <button
                 onClick={onContactClick}
@@ -71,8 +71,8 @@ function Footer({ onContactClick }) {
             rel="noopener noreferrer"
             className="block transition hover:text-white"
 >
-  Documentation
-</a>
+           Documentation
+           </a>
              <Link
               to="/guides"
               className="block transition hover:text-white"
@@ -87,12 +87,12 @@ function Footer({ onContactClick }) {
                 FAQs
               </Link>
 
-              <a
-                href="#"
-                className="block transition hover:text-white"
-              >
-                Support
-              </a>
+             <button
+              onClick={onSupportClick}
+              className="block text-left transition hover:text-cyan-400"
+             >
+               Support
+             </button>
             </div>
           </div>
 
