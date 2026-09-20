@@ -227,13 +227,21 @@ function FAQ() {
     .filter((section) => section.questions.length > 0);
 
   return (
-    <div className="min-h-screen bg-[#030712] text-white">
+    <div
+  className="relative min-h-screen bg-cover bg-center bg-fixed text-white"
+  style={{ backgroundImage: "url('/images/faq-bg.jpg')" }}
+>
+  {/* Background overlay */}
+  <div className="pointer-events-none fixed inset-0 z-0 bg-[#030712]/80" />
 
-      {/* Background Glow */}
-      <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="absolute left-1/4 top-0 h-96 w-96 rounded-full bg-cyan-400/10 blur-[140px]" />
-        <div className="absolute right-0 top-1/3 h-96 w-96 rounded-full bg-violet-500/10 blur-[140px]" />
-      </div>
+  {/* Background Glow */}
+  <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+    <div className="absolute left-1/4 top-0 h-96 w-96 rounded-full bg-cyan-400/10 blur-[140px]" />
+    <div className="absolute right-0 top-1/3 h-96 w-96 rounded-full bg-violet-500/10 blur-[140px]" />
+  </div>
+
+  {/* All page content */}
+  <div className="relative z-10">
 
       {/* Header */}
       <header className="relative z-10 border-b border-white/10 bg-[#030712]/80 backdrop-blur-xl">
@@ -339,7 +347,7 @@ function FAQ() {
               filteredData.map((section) => (
                 <div
                   key={section.category}
-                  className="mb-8 overflow-hidden rounded-3xl border border-white/10 bg-[#080d18]/80 p-6 sm:p-8"
+                  className="mb-8 overflow-hidden rounded-3xl border border-white/10 bg-[#080d18]/70 p-6 shadow-xl backdrop-blur-md sm:p-8"
                 >
                   <div className="mb-4 flex items-center gap-3">
                     <div className="h-2 w-2 rounded-full bg-cyan-400 shadow-[0_0_12px_rgba(34,211,238,0.8)]" />
@@ -435,30 +443,30 @@ function FAQ() {
       </main>
 
       {/* Footer */}
-      <footer className="relative z-10 border-t border-white/10 px-6 py-8 lg:px-8">
+      <footer className="relative z-10 border-t border-white/10 px-6 py-8 lg:px-8 ">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 text-xs text-slate-500 sm:flex-row">
-          <p>
+          <p className="text-cyan-400">
             © 2026 Optiora. All rights reserved.
           </p>
 
           <div className="flex gap-5">
             <Link
               to="/privacy-policy"
-              className="transition hover:text-white"
+              className="transition hover:text-white text-cyan-400"
             >
               Privacy Policy
             </Link>
 
             <Link
               to="/terms"
-              className="transition hover:text-white"
+              className="transition hover:text-white  text-cyan-400"
             >
               Terms of Service
             </Link>
           </div>
         </div>
       </footer>
-
+</div>
     </div>
   );
 }
