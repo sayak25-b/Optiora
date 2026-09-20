@@ -44,9 +44,7 @@ function SupportQuestion({ question, answer }) {
 
       {open && (
         <div className="border-t border-white/10 px-4 pb-4 pt-3">
-          <p className="text-sm leading-6 text-gray-400">
-            {answer}
-          </p>
+          <p className="text-sm leading-6 text-gray-400">{answer}</p>
         </div>
       )}
     </div>
@@ -65,14 +63,14 @@ function SupportPanel({
   }
 
   const topics = [
-     {
-    icon: <BookOpen size={20} />,
-    title: "Documentation",
-    description:
-      "Learn how Optiora works and explore its features.",
-    link: "/Documentation/Optiora_Documentation.pdf",
-    type: "pdf",
-  },
+    {
+      icon: <BookOpen size={20} />,
+      title: "Documentation",
+      description:
+        "Learn how Optiora works and explore its features.",
+      link: "/Documentation/Optiora_Documentation.pdf",
+      type: "pdf",
+    },
     {
       icon: <BookOpen size={20} />,
       title: "Getting Started",
@@ -165,221 +163,233 @@ function SupportPanel({
       {/* SUPPORT PANEL */}
 
       <aside
-        className="fixed left-0 top-0 z-[70] flex h-full w-full flex-col overflow-hidden border-r border-white/10 bg-[#050a14] text-white shadow-2xl sm:w-[85%] lg:w-[68%] xl:w-[65%]"
+        className="fixed left-0 top-0 z-[70] flex h-full w-full flex-col overflow-hidden border-r border-white/10 bg-cover bg-center bg-no-repeat text-white shadow-2xl sm:w-[85%] lg:w-[68%] xl:w-[65%]"
+        style={{
+          backgroundImage: "url('/images/support.jpg')",
+        }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* HEADER */}
+        {/* BACKGROUND OVERLAY */}
 
-        <div className="flex items-center justify-between border-b border-white/10 px-6 py-5 sm:px-8">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">
-              Optiora Support
-            </p>
+        <div className="absolute inset-0 bg-[#030712]/80" />
 
-            <h2 className="mt-1 text-xl font-bold sm:text-2xl">
-              How can we help?
-            </h2>
-          </div>
+        {/* PANEL CONTENT */}
 
-          <button
-            type="button"
-            onClick={onClose}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-gray-400 transition hover:border-cyan-400/40 hover:bg-cyan-400/10 hover:text-cyan-400"
-          >
-            <X size={20} />
-          </button>
-        </div>
+        <div className="relative z-10 flex h-full flex-col">
 
-        {/* SCROLLABLE CONTENT */}
+          {/* HEADER */}
 
-        <div className="flex-1 overflow-y-auto">
-
-          {/* HERO */}
-
-          <section className="relative overflow-hidden px-6 py-8 sm:px-8 sm:py-10">
-            <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-cyan-400/10 blur-[100px]" />
-
-            <div className="relative">
-              <h3 className="text-3xl font-bold leading-tight sm:text-4xl">
-                Get the help you need
-                <span className="text-cyan-400">.</span>
-              </h3>
-
-              <p className="mt-3 max-w-2xl text-sm leading-6 text-gray-400 sm:text-base">
-                Find answers, explore guides, troubleshoot problems,
-                or contact the Optiora support team.
+          <div className="flex items-center justify-between border-b border-white/10 bg-[#030712]/40 px-6 py-5 backdrop-blur-md sm:px-8">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">
+                Optiora Support
               </p>
 
-              {/* SEARCH */}
-
-              <div className="relative mt-6 max-w-2xl">
-                <Search
-                  size={19}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"
-                />
-
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) =>
-                    setSearchQuery(e.target.value)
-                  }
-                  placeholder="Search for help, features, or solutions..."
-                  className="w-full rounded-xl border border-white/10 bg-white/[0.04] py-3.5 pl-11 pr-4 text-sm text-white outline-none placeholder:text-gray-600 focus:border-cyan-400/50"
-                />
-              </div>
+              <h2 className="mt-1 text-xl font-bold sm:text-2xl">
+                How can we help?
+              </h2>
             </div>
-          </section>
 
-          {/* QUICK SUPPORT */}
-
-          <section className="px-6 pb-8 sm:px-8">
-            <h3 className="mb-5 text-sm font-semibold uppercase tracking-wider text-gray-400">
-              Quick Support
-            </h3>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              {filteredTopics.map((topic, index) => {
-                if (topic.type === "pdf") {
-    return (
-      <a
-        key={index}
-        href={topic.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group block rounded-xl border border-white/10 bg-white/[0.02] p-4 transition hover:border-cyan-400/30 hover:bg-cyan-400/[0.04]"
-      >
-        <div className="flex items-start gap-4">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-cyan-400/10 text-cyan-400">
-            {topic.icon}
+            <button
+              type="button"
+              onClick={onClose}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-gray-400 transition hover:border-cyan-400/40 hover:bg-cyan-400/10 hover:text-cyan-400"
+            >
+              <X size={20} />
+            </button>
           </div>
 
-          <div>
-            <h3 className="text-sm font-semibold text-white group-hover:text-cyan-400">
-              {topic.title}
-            </h3>
+          {/* SCROLLABLE CONTENT */}
 
-            <p className="mt-1 text-xs leading-5 text-gray-400">
-              {topic.description}
-            </p>
-          </div>
-        </div>
-      </a>
-    );
-  }
+          <div className="flex-1 overflow-y-auto">
 
-                if (topic.action === "issues") {
+            {/* HERO */}
+
+            <section className="relative overflow-hidden px-6 py-8 sm:px-8 sm:py-10">
+              <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-cyan-400/10 blur-[100px]" />
+
+              <div className="relative">
+                <h3 className="text-3xl font-bold leading-tight sm:text-4xl">
+                  Get the help you need
+                  <span className="text-cyan-400">.</span>
+                </h3>
+
+                <p className="mt-3 max-w-2xl text-sm leading-6 text-gray-400 sm:text-base">
+                  Find answers, explore guides, troubleshoot problems,
+                  or contact the Optiora support team.
+                </p>
+
+                {/* SEARCH */}
+
+                <div className="relative mt-6 max-w-2xl">
+                  <Search
+                    size={19}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"
+                  />
+
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) =>
+                      setSearchQuery(e.target.value)
+                    }
+                    placeholder="Search for help, features, or solutions..."
+                    className="w-full rounded-xl border border-white/10 bg-black/30 py-3.5 pl-11 pr-4 text-sm text-white outline-none backdrop-blur-md placeholder:text-gray-600 focus:border-cyan-400/50"
+                  />
+                </div>
+              </div>
+            </section>
+
+            {/* QUICK SUPPORT */}
+
+            <section className="px-6 pb-8 sm:px-8">
+              <h3 className="mb-5 text-sm font-semibold uppercase tracking-wider text-gray-400">
+                Quick Support
+              </h3>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                {filteredTopics.map((topic, index) => {
+                  if (topic.type === "pdf") {
+                    return (
+                      <a
+                        key={index}
+                        href={topic.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group block rounded-xl border border-white/10 bg-black/30 p-4 backdrop-blur-md transition hover:border-cyan-400/30 hover:bg-cyan-400/[0.06]"
+                      >
+                        <div className="flex items-start gap-4">
+                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-cyan-400/10 text-cyan-400">
+                            {topic.icon}
+                          </div>
+
+                          <div>
+                            <h3 className="text-sm font-semibold text-white group-hover:text-cyan-400">
+                              {topic.title}
+                            </h3>
+
+                            <p className="mt-1 text-xs leading-5 text-gray-400">
+                              {topic.description}
+                            </p>
+                          </div>
+                        </div>
+                      </a>
+                    );
+                  }
+
+                  if (topic.action === "issues") {
+                    return (
+                      <button
+                        key={index}
+                        type="button"
+                        onClick={handleTroubleshooting}
+                        className="group rounded-2xl border border-white/10 bg-black/30 p-5 text-left backdrop-blur-md transition hover:border-cyan-400/30 hover:bg-cyan-400/[0.06]"
+                      >
+                        <TopicContent topic={topic} />
+                      </button>
+                    );
+                  }
+
                   return (
-                    <button
+                    <Link
                       key={index}
-                      type="button"
-                      onClick={handleTroubleshooting}
-                      className="group rounded-2xl border border-white/10 bg-white/[0.03] p-5 text-left transition hover:border-cyan-400/30 hover:bg-cyan-400/[0.04]"
+                      to={topic.link}
+                      onClick={onClose}
+                      className="group rounded-2xl border border-white/10 bg-black/30 p-5 text-left backdrop-blur-md transition hover:border-cyan-400/30 hover:bg-cyan-400/[0.06]"
                     >
                       <TopicContent topic={topic} />
-                    </button>
+                    </Link>
                   );
-                }
+                })}
+              </div>
 
-                return (
-                  <Link
-                    key={index}
-                    to={topic.link}
-                    onClick={onClose}
-                    className="group rounded-2xl border border-white/10 bg-white/[0.03] p-5 text-left transition hover:border-cyan-400/30 hover:bg-cyan-400/[0.04]"
-                  >
-                    <TopicContent topic={topic} />
-                  </Link>
-                );
-              })}
-            </div>
-
-            {filteredTopics.length === 0 && (
-              <p className="rounded-xl border border-white/10 p-5 text-center text-sm text-gray-500">
-                No matching support topic found.
-              </p>
-            )}
-          </section>
-
-          {/* COMMON ISSUES */}
-
-          <section
-            id="common-issues"
-            className="border-t border-white/10 px-6 py-8 sm:px-8"
-          >
-            <h3 className="text-lg font-semibold">
-              Common Issues
-            </h3>
-
-            <p className="mt-1 text-sm text-gray-500">
-              Find quick solutions to common Optiora problems.
-            </p>
-
-            <div className="mt-5 space-y-3">
-              {filteredIssues.length > 0 ? (
-                filteredIssues.map((issue, index) => (
-                  <SupportQuestion
-                    key={index}
-                    question={issue.question}
-                    answer={issue.answer}
-                  />
-                ))
-              ) : (
-                <p className="rounded-xl border border-white/10 p-5 text-center text-sm text-gray-500">
-                  No matching issue found.
+              {filteredTopics.length === 0 && (
+                <p className="rounded-xl border border-white/10 bg-black/30 p-5 text-center text-sm text-gray-500 backdrop-blur-md">
+                  No matching support topic found.
                 </p>
               )}
-            </div>
-          </section>
+            </section>
 
-          {/* CONTACT SUPPORT */}
+            {/* COMMON ISSUES */}
 
-          <section className="px-6 pb-8 sm:px-8">
-            <div className="relative overflow-hidden rounded-2xl border border-cyan-400/20 bg-gradient-to-br from-cyan-400/10 to-violet-500/10 p-6">
-              <MessageCircle
-                size={28}
-                className="text-cyan-400"
-              />
-
-              <h3 className="mt-4 text-xl font-semibold">
-                Still need help?
+            <section
+              id="common-issues"
+              className="border-t border-white/10 px-6 py-8 sm:px-8"
+            >
+              <h3 className="text-lg font-semibold">
+                Common Issues
               </h3>
 
-              <p className="mt-2 max-w-xl text-sm leading-6 text-gray-400">
-                Can't find what you're looking for?
-                Send us a message and our team will help you.
+              <p className="mt-1 text-sm text-gray-500">
+                Find quick solutions to common Optiora problems.
               </p>
 
-              <button
-                type="button"
-                onClick={() => {
-                  onClose();
+              <div className="mt-5 space-y-3">
+                {filteredIssues.length > 0 ? (
+                  filteredIssues.map((issue, index) => (
+                    <SupportQuestion
+                      key={index}
+                      question={issue.question}
+                      answer={issue.answer}
+                    />
+                  ))
+                ) : (
+                  <p className="rounded-xl border border-white/10 bg-black/30 p-5 text-center text-sm text-gray-500 backdrop-blur-md">
+                    No matching issue found.
+                  </p>
+                )}
+              </div>
+            </section>
 
-                  if (onContactClick) {
-                    onContactClick();
-                  }
-                }}
-                className="mt-5 rounded-xl bg-cyan-400 px-5 py-3 text-sm font-semibold text-black transition hover:bg-cyan-300"
-              >
-                Contact Support
-              </button>
+            {/* CONTACT SUPPORT */}
+
+            <section className="px-6 pb-8 sm:px-8">
+              <div className="relative overflow-hidden rounded-2xl border border-cyan-400/20 bg-gradient-to-br from-cyan-400/10 to-violet-500/10 p-6 backdrop-blur-md">
+                <MessageCircle
+                  size={28}
+                  className="text-cyan-400"
+                />
+
+                <h3 className="mt-4 text-xl font-semibold">
+                  Still need help?
+                </h3>
+
+                <p className="mt-2 max-w-xl text-sm leading-6 text-gray-400">
+                  Can't find what you're looking for?
+                  Send us a message and our team will help you.
+                </p>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    onClose();
+
+                    if (onContactClick) {
+                      onContactClick();
+                    }
+                  }}
+                  className="mt-5 rounded-xl bg-cyan-400 px-5 py-3 text-sm font-semibold text-black transition hover:bg-cyan-300"
+                >
+                  Contact Support
+                </button>
+              </div>
+            </section>
+
+            {/* FOOTER */}
+
+            <div className="border-t border-white/10 px-6 py-6 text-center">
+              <p className="text-xs text-gray-600">
+                Optiora Support • Intelligent Business Growth &
+                Predictive Analytics
+              </p>
             </div>
-          </section>
 
-          {/* FOOTER */}
-
-          <div className="border-t border-white/10 px-6 py-6 text-center">
-            <p className="text-xs text-gray-600">
-              Optiora Support • Intelligent Business Growth &
-              Predictive Analytics
-            </p>
           </div>
         </div>
       </aside>
     </>
   );
 }
-
 
 /* =========================================================
    QUICK SUPPORT CARD CONTENT
