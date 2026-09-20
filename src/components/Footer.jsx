@@ -27,7 +27,7 @@ function Footer({ onContactClick, onSupportClick }) {
               Company
             </h3>
 
-            <div className="space-y-3 text-xs">
+            <div className="flex flex-col gap-3 text-xs">
               <Link
                 to="/about"
                 className="block transition hover:text-white"
@@ -55,6 +55,16 @@ function Footer({ onContactClick, onSupportClick }) {
               >
                 Blog
               </Link>
+              
+              <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdsrzZ0UY6VmlmAbjgdOFSx7XcfLwYtXalTimn7dduxVJmfCA/viewform?usp=publish-editor"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition hover:text-cyan-400"
+              >
+               
+              Give Feedback
+              </a>
             </div>
           </div>
 
