@@ -16,8 +16,7 @@ function Footer({ onContactClick, onSupportClick }) {
             <Logo />
 
             <p className="mt-5 max-w-xs text-sm leading-6">
-              Intelligent Business Growth &
-              Predictive Analytics Platform
+             Understand your data. Predict what’s next. Make smarter decisions.
             </p>
           </div>
 

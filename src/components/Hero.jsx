@@ -1,4 +1,10 @@
 import { Link } from "react-router-dom";
+import {
+  FaReact,
+  FaNodeJs,
+  FaPython,
+} from "react-icons/fa";
+import { SiMongodb, SiExpress } from "react-icons/si";
 <Link
   to="/register"
   className="flex items-center gap-3 rounded-lg bg-gradient-to-r from-violet-600 to-indigo-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-violet-900/30 transition hover:-translate-y-1"
@@ -15,7 +21,13 @@ import IntelligenceVisual from "./IntelligenceVisual";
 
 function Hero() {
   return (
-    <section className="hero-grid relative overflow-hidden bg-[#030712] pt-28">
+    <section className="hero-grid relative overflow-hidden bg-[#030712] pt-28"
+    style={{
+    backgroundImage: `
+      radial-gradient(circle at 75% 50%, rgba(124, 58, 237, 0.12), transparent 35%),
+      radial-gradient(circle at 20% 20%, rgba(6, 182, 212, 0.08), transparent 30%)
+    `,
+  }}>
 
       {/* Background Glow */}
       <div className="absolute left-0 top-40 h-96 w-96 rounded-full bg-violet-700/10 blur-[130px]" />
@@ -24,7 +36,9 @@ function Hero() {
 
         {/* Left Side */}
         <div className="relative z-10">
-
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-400">
+          Intelligent Business Growth Platform
+        </p>
           <h1 className="max-w-xl text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-[52px]">
             Your Business Data
             <br />
@@ -32,17 +46,36 @@ function Hero() {
             <br />
 
             <span className="gradient-text">
-              Optiora Helps You
+              We Help You
               <br />
               Understand It.
             </span>
           </h1>
 
           <p className="mt-6 max-w-xl text-base leading-7 text-slate-300 sm:text-lg">
-            Optiora is an AI-powered platform that turns
-            your sales, customers, products and inventory
-            data into predictions and actionable insights.
+            Running a business means making decisions every day.
+            Optiora brings your sales, customers, products and inventory
+            data together to help you understand what is happening
+            and plan what comes next.
           </p>
+         {/*Description Tags*/ }
+          <div className="mt-5 flex flex-wrap gap-2">
+  <span className="rounded-full border border-cyan-400/20 bg-cyan-400/5 px-3 py-1.5 text-xs text-cyan-300">
+    Sales Forecasting
+  </span>
+
+  <span className="rounded-full border border-violet-400/20 bg-violet-400/5 px-3 py-1.5 text-xs text-violet-300">
+    Demand Prediction
+  </span>
+
+  <span className="rounded-full border border-violet-400/20 bg-cyan-400/5 px-3 py-1.5 text-xs text-cyan-300">
+    Customer Churn Analysis
+  </span>
+
+  <span className="rounded-full border border-violet-400/20 bg-violet-400/5 px-3 py-1.5 text-xs text-violet-300">
+    AI Insights
+  </span>
+</div>
 
           {/* Buttons */}
           <div className="mt-8 flex flex-wrap gap-4">
@@ -51,7 +84,7 @@ function Hero() {
               href="/register"
               className="flex items-center gap-3 rounded-lg bg-gradient-to-r from-violet-600 to-indigo-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-violet-900/30 transition hover:-translate-y-1"
             >
-              Explore Optiora
+              Start Exploring
               <ArrowRight size={17} />
             </a>
 
@@ -70,25 +103,30 @@ function Hero() {
 
             <span>Built with</span>
 
-            <span className="font-semibold text-cyan-400">
-              ⚛ React
-            </span>
+             <span className="flex items-center gap-2 text-cyan-400">
+              <FaReact />
+                 React
+              </span>
 
-            <span className="font-semibold text-emerald-400">
-              ◇ Node
-            </span>
+            <span className="flex items-center gap-2 text-green-400">
+             <FaNodeJs />
+               Node.js
+              </span>
 
-            <span className="font-semibold text-green-500">
-              ● MongoDB
-            </span>
+               <span className="flex items-center gap-2 font-semibold text-green-500">
+              <SiMongodb size={18} />
+                MongoDB
+              </span>
 
-            <span className="text-slate-400">
-              Express
-            </span>
+              <span className="flex items-center gap-2 font-semibold text-gray-300">
+               <SiExpress size={18} />
+               Express
+              </span>
 
-            <span className="font-semibold text-yellow-400">
-              🐍 Python
-            </span>
+            <span className="flex items-center gap-2 text-yellow-400">
+              <FaPython />
+              Python
+             </span>
 
           </div>
         </div>

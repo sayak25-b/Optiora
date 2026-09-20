@@ -26,7 +26,7 @@ function Navbar() {
     },**/
     {
       label: "About",
-      href: "#about",
+      href: "/#businesses",
     },
   ];
 
