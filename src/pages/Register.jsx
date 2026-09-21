@@ -75,13 +75,13 @@ export default function Register() {
         </Link>
 
         {/* ================= MAIN BOX ================= */}
-        <div className="mx-auto flex max-w-6xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-[#080d18]/95 shadow-2xl backdrop-blur-xl lg:flex-row">
+        <div className="mx-auto flex max-w-6xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/95 shadow-2xl backdrop-blur-xl lg:flex-row">
 
           {/* ================= LEFT FORM ================= */}
           <div className="w-full p-6 sm:p-10 lg:w-[58%]">
 
             <div className="mb-7">
-              <h1 className="text-3xl font-bold">
+              <h1 className="text-3xl font-bold text-cyan-400">
                 Create your account
               </h1>
 
@@ -114,7 +114,7 @@ export default function Register() {
 
               {/* Organization Address */}
               <div>
-                <label className="mb-1.5 block text-sm text-gray-300">
+                <label className="mb-1.5 block text-sm text-cyan-400">
                   Organization Address
                 </label>
 
@@ -131,7 +131,7 @@ export default function Register() {
                     placeholder="Enter complete organization address"
                     rows="2"
                     required
-                    className="w-full resize-none rounded-xl border border-white/10 bg-black/20 py-3 pl-11 pr-4 text-sm outline-none placeholder:text-gray-600 transition focus:border-cyan-400/50"
+                    className="w-full resize-none rounded-xl border border-white/10 bg-black/20 py-3 pl-11 pr-4 text-sm text-gray-800 outline-none placeholder:text-gray-600 transition focus:border-cyan-400/50"
                   />
                 </div>
               </div>
@@ -259,7 +259,7 @@ export default function Register() {
                   />
 
                   <span>
-                   Optiora<span className="text-cyan-400">.</span>
+                    Optiora<span className="text-cyan-400">.</span>
                   </span>
                 </Link>
 
@@ -344,7 +344,8 @@ function Input({
   return (
     <div>
 
-      <label className="mb-1.5 block text-sm text-gray-300">
+      {/* Cyan Label */}
+      <label className="mb-1.5 block text-sm text-cyan-400">
         {label}
       </label>
 
@@ -361,7 +362,7 @@ function Input({
           onChange={onChange}
           placeholder={placeholder}
           required
-          className="w-full rounded-xl border border-white/10 bg-black/20 py-3 pl-11 pr-4 text-sm outline-none placeholder:text-gray-600 transition focus:border-cyan-400/50"
+          className="w-full rounded-xl border border-white/10 bg-black/20 py-3 pl-11 pr-4 text-sm text-gray-800 outline-none placeholder:text-gray-600 transition focus:border-cyan-400/50"
         />
 
       </div>

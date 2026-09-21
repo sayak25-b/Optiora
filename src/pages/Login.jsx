@@ -62,7 +62,7 @@ export default function Login() {
 
         {/* ================= MAIN BOX ================= */}
 
-        <div className="mx-auto flex max-w-6xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-[#080d18]/90 shadow-2xl shadow-black/40 backdrop-blur-xl lg:flex-row">
+        <div className="mx-auto flex max-w-6xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/90 shadow-2xl shadow-black/40 backdrop-blur-xl lg:flex-row">
 
           {/* ================= LEFT LOGIN ================= */}
 
@@ -74,11 +74,11 @@ export default function Login() {
                 Welcome Back
               </p>
 
-              <h1 className="text-3xl font-bold">
+              <h1 className="text-3xl font-bold text-gray-400">
                 Welcome back
               </h1>
 
-              <p className="mt-2 text-sm text-gray-400">
+              <p className="mt-2 text-sm text-violet-700">
                 Login to continue to your Optiora dashboard.
               </p>
 
@@ -93,7 +93,7 @@ export default function Login() {
 
               <div>
 
-                <label className="mb-2 block text-sm text-gray-300">
+                <label className="mb-2 block text-sm text-cyan-500">
                   Email Address
                 </label>
 
@@ -124,7 +124,7 @@ export default function Login() {
 
                 <div className="mb-2 flex items-center justify-between">
 
-                  <label className="text-sm text-gray-300">
+                  <label className="text-sm text-cyan-500">
                     Password
                   </label>
 
