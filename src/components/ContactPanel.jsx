@@ -80,6 +80,7 @@ export default function ContactPanel({ isOpen, onClose }) {
             <div className="flex items-center gap-3">
 
               {/* Logo */}
+              
               <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-cyan-400/20 bg-cyan-400/10">
                 <span className="text-xl font-bold text-cyan-400">
                   O
@@ -165,7 +166,7 @@ export default function ContactPanel({ isOpen, onClose }) {
               </p>
 
               <p className="mt-1 text-xs text-gray-300">
-                India
+                West Bengal, India
               </p>
             </div>
 

@@ -165,7 +165,7 @@ function SupportPanel({
       <aside
         className="fixed left-0 top-0 z-[70] flex h-full w-full flex-col overflow-hidden border-r border-white/10 bg-cover bg-center bg-no-repeat text-white shadow-2xl sm:w-[85%] lg:w-[68%] xl:w-[65%]"
         style={{
-          backgroundImage: "url('/images/support.jpg')",
+          backgroundImage: "url('/images/support1.jpg')",
         }}
         onClick={(e) => e.stopPropagation()}
       >
