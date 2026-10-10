@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
@@ -12,11 +13,12 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
   font-family: "Inter", sans-serif;
- background: #F8FAFC;
+  background: #F8FAFC;
   color: #0F172A;
 }
 
@@ -26,60 +28,68 @@ body {
 }
 
 /* Gradient text */
-
 .gradient-text {
-  background: linear-gradient(
-    90deg,
-    #a855f7,
-    #6366f1,
-    #3b82f6
-  );
-
+  background: linear-gradient(90deg, #a855f7, #6366f1, #3b82f6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Grid background */
-
+/* Grid backgrounds */
 .hero-grid {
   background-image:
-    linear-gradient(
-      rgba(255, 255, 255, 0.02) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.02) 1px,
-      transparent 1px
-    );
-
+    linear-gradient(rgba(99, 102, 241, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.035) 1px, transparent 1px);
   background-size: 50px 50px;
 }
 
 .section-grid {
   background-image:
-    linear-gradient(
-      rgba(99, 102, 241, 0.025) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(99, 102, 241, 0.025) 1px,
-      transparent 1px
-    );
-
+    linear-gradient(rgba(99, 102, 241, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.035) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
 /* Orbit */
-
 .orbit {
   border: 1px solid rgba(99, 102, 241, 0.35);
 }
 
 /* Card hover */
-
 .card-glow:hover {
-  box-shadow:
-    0 0 30px rgba(124, 58, 237, 0.18);
+  box-shadow: 0 0 30px rgba(124, 58, 237, 0.12);
+}
+
+/* Form fields */
+@layer components {
+  .form-input {
+    @apply block w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-800 outline-none transition duration-200;
+    @apply placeholder:text-slate-400;
+    @apply hover:border-slate-400;
+    @apply focus:border-cyan-500 focus:bg-white focus:ring-4 focus:ring-cyan-100;
+  }
+
+  .form-label {
+    @apply mb-2 block text-sm font-semibold text-slate-700;
+  }
+
+  .primary-button {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-cyan-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-cyan-700 focus:outline-none focus:ring-4 focus:ring-cyan-100;
+  }
+
+  .secondary-button {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-cyan-400 hover:bg-cyan-50;
+  }
+}
+
+/* Ensure textareas also have visible borders */
+textarea,
+input,
+select {
+  border-color: #CBD5E1;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  border-color: #06B6D4;
 }
