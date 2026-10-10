@@ -14,6 +14,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 import Guides from "./pages/Guides"; 
 import SupportPanel from "./components/SupportPanel";
+import Predictions from "./components/Predictions";
 
 
 import Footer from "./components/Footer";
@@ -36,6 +37,7 @@ function Home() {
         <IntelligenceEngine />
         <DashboardPreview />
         <BusinessSection />
+        <Predictions />
       </main>
 
       <Footer

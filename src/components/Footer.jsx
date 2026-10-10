@@ -1,211 +1,277 @@
+
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
-import Logo from "./Logo";
-import { FaLinkedinIn, FaInstagram, FaGithub } from "react-icons/fa";
+import {
+  ArrowUpRight,
+  Mail,
+  MessageCircle,
+  MapPin,
+  Github,
+  Linkedin,
+  Instagram,
+  Sparkles,
+  ArrowRight,
+} from "lucide-react";
 
 function Footer({ onContactClick, onSupportClick }) {
+  const currentYear = new Date().getFullYear();
+
+  const companyLinks = [
+    { label: "About Us", to: "/about" },
+    { label: "Blog", to: "/blog" },
+    { label: "FAQs", to: "/faq" },
+  ];
+
+  const resourceLinks = [
+
+    { label: "Guides", to: "/guides" },
+    { label: "Privacy Policy", to: "/privacy-policy" },
+    { label: "Terms & Conditions", to: "/terms" },
+  ];
+
+  const socialLinks = [
+    {
+      label: "GitHub",
+      href: "https://github.com/sayak25-b/Optiora",
+      icon: Github,
+    },
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/",
+      icon: Linkedin,
+    },
+    {
+      label: "Instagram",
+      href: "https://www.instagram.com/",
+      icon: Instagram,
+    },
+  ];
+
   return (
-    <footer className="bg-[#030712] text-slate-400">
-      <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+    <footer className="relative overflow-hidden border-t border-slate-200 bg-white">
+      {/* Decorative background */}
+      <div className="pointer-events-none absolute -right-32 -top-32 h-80 w-80 rounded-full bg-cyan-100/60 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-40 left-1/4 h-80 w-80 rounded-full bg-violet-100/50 blur-3xl" />
 
-        {/* Main Footer */}
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+        {/* CTA */}
+        <div className="border-b border-slate-200 py-12 md:py-16">
+          <div className="flex flex-col gap-7 rounded-3xl border border-cyan-100 bg-gradient-to-br from-cyan-50 via-white to-violet-50 p-7 sm:p-10 md:flex-row md:items-center md:justify-between">
+            <div className="max-w-2xl">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-white px-3 py-1.5 text-xs font-semibold text-cyan-800">
+                <Sparkles size={14} />
+                Make smarter business decisions
+              </div>
 
+              <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+                Ready to understand your business better?
+              </h2>
+
+              <p className="mt-3 max-w-xl text-sm leading-6 text-slate-600 sm:text-base">
+                Explore a smarter way to understand your data, predict trends,
+                and discover opportunities for growth with Optiora.
+              </p>
+            </div>
+
+            <Link
+              to="/register"
+              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-slate-900 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 transition hover:-translate-y-0.5 hover:bg-cyan-700"
+            >
+              Get Started
+              <ArrowRight size={17} />
+            </Link>
+          </div>
+        </div>
+
+        {/* Footer links */}
+        <div className="grid grid-cols-1 gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-12 lg:py-16">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Logo />
+            <Link to="/" className="inline-flex items-center gap-3">
+              <img
+                src="/logo.png"
+                alt="Optiora logo"
+                className="h-11 w-11 rounded-xl object-contain"
+              />
+              <div>
+                <span className="block text-2xl font-bold tracking-tight text-slate-900">
+                  Optiora
+                </span>
+                <span className="block text-xs font-medium tracking-wide text-slate-500">
+                  Intelligent Business Growth
+                </span>
+              </div>
+            </Link>
 
-            <p className="mt-5 max-w-xs text-sm leading-6">
-             Understand your data. Predict what’s next. Make smarter decisions.
+            <p className="mt-5 max-w-md text-sm leading-7 text-slate-600">
+              An intelligent business growth and predictive analytics platform
+              designed to help businesses turn their data into meaningful
+              insights and more informed decisions.
             </p>
+
+            <div className="mt-6 flex flex-wrap gap-3">
+              <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-medium text-slate-600">
+                <span className="h-2 w-2 rounded-full bg-cyan-500" />
+                AI-powered insights
+              </div>
+
+              <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-medium text-slate-600">
+                <span className="h-2 w-2 rounded-full bg-violet-500" />
+                Predictive analytics
+              </div>
+            </div>
+
+            <div className="mt-7 flex items-center gap-3">
+              {socialLinks.map(({ label, href, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={label}
+                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition hover:border-cyan-300 hover:bg-cyan-50 hover:text-cyan-700"
+                >
+                  <Icon size={18} />
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Company */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold text-white">
-              Company
-            </h3>
+            <h3 className="text-sm font-bold text-slate-900">Company</h3>
 
-            <div className="flex flex-col gap-3 text-xs">
-              <Link
-                to="/about"
-                className="block transition hover:text-white"
-              >
-                About Us
-              </Link>
-
-              {/*<a
-                href="#"
-                className="block transition hover:text-white"
-              >
-                Careers
-              </a>*/}
-
-              <button
-                onClick={onContactClick}
-                className="block text-left transition hover:text-cyan-400"
-              >
-                Contact Us
-              </button>
-
-              <Link
-                to="/blog"
-                className="block transition hover:text-white"
-              >
-                Blog
-              </Link>
+            <ul className="mt-5 space-y-4">
+              {companyLinks.map((item) => (
+                <li key={item.to}>
+                  <Link
+                    to={item.to}
+                    className="inline-flex items-center gap-1 text-sm text-slate-600 transition hover:text-cyan-700"
+                  >
+                    {item.label}
+                    <ArrowUpRight
+                      size={13}
+                      className="opacity-0 transition group-hover:opacity-100"
+                    />
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <button
+                  type="button"
+                  onClick={onContactClick}
+                  className="text-sm text-slate-600 transition hover:text-cyan-700"
+                >
+                  Contact Us
+                </button>
+              </li>
               
-              <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSdsrzZ0UY6VmlmAbjgdOFSx7XcfLwYtXalTimn7dduxVJmfCA/viewform?usp=publish-editor"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition hover:text-cyan-400"
-              >
-               
-              Give Feedback
-              </a>
-            </div>
+<li>
+  <a
+    href="https://docs.google.com/forms/d/e/1FAIpQLSdsrzZ0UY6VmlmAbjgdOFSx7XcfLwYtXalTimn7dduxVJmfCA/viewform?usp=dialog"
+    target="_blank"
+    rel="noreferrer"
+    className="text-sm text-slate-600 transition hover:text-cyan-700"
+  >
+    Give Feedback
+  </a>
+</li>
+
+            </ul>
           </div>
 
-          {/* Resources */}
-          <div>
-            <h3 className="mb-4 text-sm font-semibold text-white">
-              Resources
-            </h3>
-
-            <div className="space-y-3 text-xs">
-              <a
-            href="/Documentation/Optiora_Documentation.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block transition hover:text-white"
->
-           Documentation
-           </a>
-             <Link
-              to="/guides"
-              className="block transition hover:text-white"
-            >
-            Guides
-              </Link>
-
-              <Link
-                to="/faq"
-                className="block transition hover:text-white"
-              >
-                FAQs
-              </Link>
-
-             <button
-              onClick={onSupportClick}
-              className="block text-left transition hover:text-cyan-400"
-             >
-               Support
-             </button>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Newsletter */}
-        <div className="mt-10 flex flex-col justify-between gap-5 border-t border-white/10 pt-8 sm:flex-row sm:items-center">
+          {/* Resources and support */}
+          
 
           <div>
-            <h3 className="text-sm font-semibold text-white">
-              Stay Updated
-            </h3>
+            <h3 className="text-sm font-bold text-slate-900">Resources</h3>
 
-            <p className="mt-1 text-xs">
-              Subscribe to our newsletter
-            </p>
-          </div>
+            
 
-          <div className="flex w-full max-w-sm">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="w-full rounded-l-lg border border-white/10 bg-slate-900 px-4 py-3 text-xs text-white outline-none placeholder:text-slate-600 focus:border-violet-500"
-            />
+            <ul className="mt-5 space-y-4">
+              <li>
+  <a
+    href="/Documentation/Optiora_Documentation.pdf"
+    target="_blank"
+    rel="noreferrer"
+    className="text-sm text-slate-600 transition hover:text-cyan-700"
+  >
+    Documentation
+  </a>
+</li>
+              {resourceLinks.map((item) => (
+                <li key={item.to}>
+                  <Link
+                    to={item.to}
+                    className="text-sm text-slate-600 transition hover:text-cyan-700"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+              
+
+              <li>
+                <button
+                  type="button"
+                  onClick={onSupportClick}
+                  className="inline-flex items-center gap-2 text-sm text-slate-600 transition hover:text-cyan-700"
+                >
+                  <MessageCircle size={15} />
+                  Support Center
+                </button>
+              </li>
+            </ul>
 
             <button
-              className="rounded-r-lg bg-violet-600 px-4 text-white transition hover:bg-violet-500"
+              type="button"
+              onClick={onContactClick}
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-cyan-700 transition hover:text-cyan-900"
             >
-              <ArrowRight size={16} />
+              <Mail size={16} />
+              Get in touch
+              <ArrowUpRight size={14} />
             </button>
           </div>
-
         </div>
 
-        {/* Bottom */}
-        <div className="mt-8 flex flex-col gap-6 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
-
-          {/* Copyright */}
-          <p className="text-xs">
-            © 2026 Optiora. All rights reserved.
+        {/* Bottom bar */}
+        <div className="flex flex-col gap-4 border-t border-slate-200 py-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs leading-5 text-slate-500">
+            © {currentYear} Optiora. All rights reserved.
           </p>
 
-          {/* Right Side */}
-          <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <Link
+              to="/privacy-policy"
+              className="text-xs text-slate-500 transition hover:text-cyan-700"
+            >
+              Privacy
+            </Link>
 
-            {/* Legal Links */}
-            <div className="flex gap-6 text-xs">
-              <Link
-                to="/privacy-policy"
-                className="transition hover:text-white"
-              >
-                Privacy Policy
-              </Link>
+            <Link
+              to="/terms"
+              className="text-xs text-slate-500 transition hover:text-cyan-700"
+            >
+              Terms
+            </Link>
 
-              <Link
-                to="/terms"
-                className="transition hover:text-white"
-              >
-                Terms of Service
-              </Link>
-            </div>
+            <button
+              type="button"
+              onClick={onSupportClick}
+              className="text-xs text-slate-500 transition hover:text-cyan-700"
+            >
+              Help & Support
+            </button>
 
-            {/* Social Icons */}
-            <div className="flex items-center gap-3 sm:border-l sm:border-white/10 sm:pl-6">
-
-              {/* LinkedIn */}
-              <a
-                href="https://www.linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-400 transition hover:border-cyan-400/40 hover:bg-cyan-400/10 hover:text-cyan-400"
-              >
-                <FaLinkedinIn size={15} />
-              </a>
-
-              {/* Instagram */}
-              <a
-                href="https://www.instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-400 transition hover:border-cyan-400/40 hover:bg-cyan-400/10 hover:text-cyan-400"
-              >
-                <FaInstagram size={16} />
-              </a>
-
-              {/* GitHub */}
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-400 transition hover:border-cyan-400/40 hover:bg-cyan-400/10 hover:text-cyan-400"
-              >
-                <FaGithub size={16} />
-              </a>
-
-            </div>
-
+            <a
+              href="mailto:contact@optiora.com"
+              className="inline-flex items-center gap-1 text-xs text-slate-500 transition hover:text-cyan-700"
+            >
+              <MapPin size={12} />
+              Contact
+            </a>
           </div>
-
         </div>
-
       </div>
     </footer>
   );

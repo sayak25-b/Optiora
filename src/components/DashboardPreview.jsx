@@ -1,444 +1,249 @@
+
 import {
-  ArrowRight,
-  BarChart3,
-  Bell,
-  Boxes,
-  Brain,
-  CheckCircle2,
-  LineChart,
-  Package,
-  Settings,
-  Sparkles,
+  LayoutDashboard,
+  ShoppingCart,
   Users,
+  Package,
+  Boxes,
+  Settings,
+  Bell,
+  Search,
+  TrendingUp,
+  TrendingDown,
+  Sparkles,
+  ArrowUpRight,
 } from "lucide-react";
 
-import Logo from "./Logo";
+const stats = [
+  { title: "Total Sales", value: "₹2.84L", change: "+18.4%", up: true },
+  { title: "Customers", value: "3,260", change: "+12.6%", up: true },
+  { title: "Products", value: "158", change: "+8.7%", up: true },
+];
+
+const chartBars = [32, 44, 39, 57, 46, 68, 53, 75, 61, 86, 70, 96];
 
 function DashboardPreview() {
-  const menu = [
-    ["Overview", BarChart3],
-    ["Sales", LineChart],
-    ["Products", Package],
-    ["Customers", Users],
-    ["Inventory", Boxes],
-    ["AI Insights", Brain],
-    ["Reports", BarChart3],
-    ["Settings", Settings],
-  ];
-
-  const stats = [
-    ["Total Revenue", "₹2,84,500", "18.4%"],
-    ["Total Sales", "1,284", "16.2%"],
-    ["Customers", "326", "12.6%"],
-    ["Profit", "₹54,230", "20.1%"],
-  ];
-
   return (
     <section
-  id="how-it-works"
-  className="relative overflow-hidden bg-[#030712] py-20 sm:py-24"
->
-      {/* Background glow */}
-<div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400/5 blur-[140px]" />
-
-<div className="pointer-events-none absolute right-0 top-0 h-96 w-96 rounded-full bg-violet-500/5 blur-[130px]" />
-
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
-
-        {/* Section heading */}
+      id="how-it-works"
+      className="overflow-hidden bg-[#F1F5F9] px-5 py-20 sm:px-8 sm:py-28"
+    >
+      <div className="mx-auto max-w-7xl">
         <div className="mx-auto max-w-3xl text-center">
+          <span className="rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wider text-cyan-700">
+            Your Business, Clearly
+          </span>
 
-          <div className="mx-auto mb-5 flex w-fit items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/5 px-4 py-2">
-            <BarChart3 size={15} className="text-cyan-400" />
-
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">
-              Your Business at a Glance
-            </span>
-          </div>
-
-          <h2 className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
-            See Your Business Clearly.
-            <br />
-
-            <span className="gradient-text">
-              Know What Needs Your Attention.
-            </span>
+          <h2 className="mt-6 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+            See What Matters.
+            <span className="block text-cyan-700">Know Where to Focus.</span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-400 sm:text-base">
-            Instead of searching through spreadsheets and reports,
-            get a simple view of your sales, customers, products,
-            inventory and the insights that matter most.
+          <p className="mt-5 text-base leading-7 text-slate-600 sm:text-lg">
+            Bring essential business metrics, performance trends and AI-powered
+            insights together in one organized view.
           </p>
-
         </div>
 
-        {/* Human question */}
-        <div className="mx-auto mt-10 max-w-2xl text-center">
+        {/* Dashboard frame */}
+        <div className="relative mt-14">
+          <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-r from-cyan-200/60 via-white to-violet-200/60 blur-2xl" />
 
-          <div className="inline-flex flex-wrap items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-3">
-
-            <span className="text-sm text-slate-500">
-              Start your day with one question:
-            </span>
-
-            <span className="text-sm font-semibold text-white">
-              "What needs my attention today?"
-            </span>
-
-          </div>
-
-        </div>
-
-        {/* Dashboard */}
-        <div className="relative mt-12">
-
-          {/* Glow behind dashboard */}
-          <div className="absolute left-1/2 top-1/2 h-80 w-4/5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-600/10 blur-[100px]" />
-
-          <div className="relative overflow-hidden rounded-2xl border border-indigo-400/20 bg-[#080d18] shadow-[0_0_80px_rgba(79,70,229,0.15)]">
-
+          <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl shadow-slate-300/40 sm:rounded-3xl">
             {/* Top bar */}
-            <div className="flex items-center justify-between border-b border-white/10 bg-[#0a1020]/90 px-4 py-3">
-
-              <div className="flex items-center gap-4">
-
-                <Logo />
-
-                <div className="hidden h-5 w-px bg-white/10 sm:block" />
-
-                <div className="hidden text-sm text-slate-300 sm:block">
-                  Overview
+            <div className="flex items-center justify-between border-b border-slate-100 px-4 py-4 sm:px-6">
+              <div className="flex items-center gap-2">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-500 to-violet-500 text-white">
+                  <Sparkles size={17} />
                 </div>
-
-              </div>
-
-              <div className="flex items-center gap-3 text-xs text-slate-400">
-
-                <span className="hidden rounded-md border border-white/10 bg-white/[0.02] px-3 py-2 sm:block">
-                  This Month⌄
+                <span className="font-bold text-slate-900">
+                  Optiora<span className="text-cyan-500">.</span>
                 </span>
-
-                <div className="relative">
-                  <Bell size={16} />
-
-                  <span className="absolute -right-1 -top-1 h-1.5 w-1.5 rounded-full bg-cyan-400" />
-                </div>
-
+                <span className="ml-2 hidden rounded-md bg-cyan-50 px-2 py-1 text-[10px] font-semibold text-cyan-700 sm:inline">
+                  BUSINESS OVERVIEW
+                </span>
               </div>
 
+              <div className="flex items-center gap-3">
+                <div className="hidden items-center gap-2 rounded-lg border border-slate-200 px-3 py-2 md:flex">
+                  <Search size={14} className="text-slate-400" />
+                  <span className="text-xs text-slate-400">
+                    Search dashboard
+                  </span>
+                </div>
+                <Bell size={18} className="text-slate-500" />
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-violet-100 text-xs font-bold text-violet-700">
+                  S
+                </div>
+              </div>
             </div>
 
-            <div className="grid md:grid-cols-[150px_1fr]">
-
+            <div className="grid md:grid-cols-[180px_1fr]">
               {/* Sidebar */}
-              <aside className="hidden border-r border-white/10 bg-[#070c17] p-3 md:block">
-
-                <div className="mb-4 px-3 pt-2 text-[9px] font-semibold uppercase tracking-widest text-slate-600">
+              <aside className="hidden border-r border-slate-100 bg-slate-50/70 p-4 md:block">
+                <p className="mb-4 px-3 text-[10px] font-bold uppercase tracking-widest text-slate-400">
                   Workspace
-                </div>
+                </p>
 
-                <div className="space-y-1">
-
-                  {menu.map(([name, Icon], index) => (
-                    <div
-                      key={name}
-                      className={`flex items-center gap-2 rounded-lg px-3 py-2.5 text-[10px] transition ${
-                        index === 0
-                          ? "bg-violet-600/20 text-white"
-                          : "text-slate-500"
-                      }`}
-                    >
-                      <Icon size={13} />
-                      {name}
-                    </div>
-                  ))}
-
-                </div>
-
+                {[
+                  { icon: LayoutDashboard, label: "Overview", active: true },
+                  { icon: ShoppingCart, label: "Sales" },
+                  { icon: Users, label: "Customers" },
+                  { icon: Package, label: "Products" },
+                  { icon: Boxes, label: "Inventory" },
+                  { icon: Settings, label: "Settings" },
+                ].map(({ icon: Icon, label, active }) => (
+                  <div
+                    key={label}
+                    className={`mb-1 flex items-center gap-3 rounded-lg px-3 py-3 text-xs font-medium ${
+                      active
+                        ? "bg-cyan-50 text-cyan-800"
+                        : "text-slate-500"
+                    }`}
+                  >
+                    <Icon size={16} />
+                    {label}
+                  </div>
+                ))}
               </aside>
 
-              {/* Dashboard Main */}
-              <main className="p-4 sm:p-5">
-
-                {/* Welcome */}
-                <div className="mb-5 flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
-
+              {/* Dashboard main area */}
+              <div className="min-w-0 p-4 sm:p-6 lg:p-8">
+                <div className="flex flex-wrap items-start justify-between gap-3">
                   <div>
-                    <p className="text-[10px] text-slate-500">
-                      Today
-                    </p>
-
-                    <h3 className="mt-1 text-sm font-semibold text-white sm:text-base">
+                    <h3 className="text-xl font-bold text-slate-900 sm:text-2xl">
                       Good morning 👋
                     </h3>
+                    <p className="mt-1 text-sm text-slate-500">
+                      Here's an overview of your business performance.
+                    </p>
                   </div>
-
-                  <div className="flex items-center gap-2 text-[10px] text-emerald-400">
-
-                    <CheckCircle2 size={13} />
-
-                    Business is performing well
-
-                  </div>
-
+                  <button
+                    type="button"
+                    className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-slate-600"
+                  >
+                    Last 30 days
+                  </button>
                 </div>
 
                 {/* Stats */}
-                <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-
-                  {stats.map(([title, value, growth]) => (
+                <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                  {stats.map((stat) => (
                     <div
-                      key={title}
-                      className="rounded-xl border border-white/5 bg-[#0c1426] p-3.5 transition hover:border-white/10"
+                      key={stat.title}
+                      className="rounded-xl border border-slate-100 bg-white p-4"
                     >
-
-                      <div className="text-[9px] text-slate-500">
-                        {title}
+                      <p className="text-xs text-slate-500">{stat.title}</p>
+                      <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
+                        <p className="text-2xl font-bold text-slate-900">
+                          {stat.value}
+                        </p>
+                        <span className="flex items-center gap-1 rounded-md bg-emerald-50 px-2 py-1 text-[10px] font-semibold text-emerald-700">
+                          <TrendingUp size={12} />
+                          {stat.change}
+                        </span>
                       </div>
-
-                      <div className="mt-2 text-sm font-semibold text-white sm:text-base">
-                        {value}
-                      </div>
-
-                      <div className="mt-1 text-[8px] font-medium text-emerald-400">
-                        ↑ {growth} this month
-                      </div>
-
+                      <p className="mt-2 text-[10px] text-slate-400">
+                        Compared with the previous period
+                      </p>
                     </div>
                   ))}
-
                 </div>
 
-                {/* Main dashboard area */}
-                <div className="mt-4 grid gap-3 lg:grid-cols-[1fr_220px]">
-
-                  {/* Sales chart */}
-                  <div className="rounded-xl border border-white/5 bg-[#0c1426] p-4">
-
+                <div className="mt-5 grid gap-5 lg:grid-cols-[1.5fr_1fr]">
+                  {/* Chart */}
+                  <div className="rounded-xl border border-slate-100 p-4 sm:p-5">
                     <div className="flex items-center justify-between">
-
                       <div>
-                        <div className="text-xs font-semibold text-white">
+                        <h4 className="font-bold text-slate-800">
                           Sales Performance
-                        </div>
-
-                        <div className="mt-1 text-[9px] text-slate-500">
-                          Your sales are trending upward
-                        </div>
+                        </h4>
+                        <p className="mt-1 text-xs text-slate-400">
+                          Monthly sales overview
+                        </p>
                       </div>
-
-                      <div className="flex items-center gap-1 text-[9px] text-emerald-400">
-                        <TrendingUpIcon />
-                        18.4%
-                      </div>
-
+                      <ArrowUpRight size={18} className="text-cyan-600" />
                     </div>
 
-                    <div className="mt-4 h-40">
-
-                      <svg
-                        viewBox="0 0 500 150"
-                        className="h-full w-full"
-                        preserveAspectRatio="none"
-                      >
-                        <defs>
-                          <linearGradient
-                            id="dashboardChartGradient"
-                            x1="0"
-                            x2="0"
-                            y1="0"
-                            y2="1"
-                          >
-                            <stop
-                              offset="0%"
-                              stopColor="#8b5cf6"
-                              stopOpacity="0.35"
-                            />
-
-                            <stop
-                              offset="100%"
-                              stopColor="#8b5cf6"
-                              stopOpacity="0"
-                            />
-                          </linearGradient>
-                        </defs>
-
-                        <path
-                          d="M0 120 L50 90 L100 105 L150 75 L200 70 L250 80 L300 48 L350 65 L400 40 L450 52 L500 20 L500 150 L0 150 Z"
-                          fill="url(#dashboardChartGradient)"
-                        />
-
-                        <path
-                          d="M0 120 L50 90 L100 105 L150 75 L200 70 L250 80 L300 48 L350 65 L400 40 L450 52 L500 20"
-                          fill="none"
-                          stroke="#8b5cf6"
-                          strokeWidth="3"
-                        />
-                      </svg>
-
+                    <div className="mt-6 flex h-40 items-end gap-2 border-b border-l border-slate-100 px-2">
+                      {chartBars.map((height, index) => (
+                        <div
+                          key={index}
+                          className="flex h-full flex-1 items-end"
+                        >
+                          <div
+                            className={`w-full rounded-t-md ${
+                              index > 8
+                                ? "bg-gradient-to-t from-violet-500 to-violet-300"
+                                : "bg-gradient-to-t from-cyan-600 to-cyan-300"
+                            }`}
+                            style={{ height: `${height}%` }}
+                          />
+                        </div>
+                      ))}
                     </div>
 
-                    <div className="mt-2 flex justify-between text-[8px] text-slate-600">
-                      <span>Week 1</span>
-                      <span>Week 2</span>
-                      <span>Week 3</span>
-                      <span>Week 4</span>
+                    <div className="mt-2 flex justify-between text-[10px] text-slate-400">
+                      <span>Jan</span>
+                      <span>Mar</span>
+                      <span>May</span>
+                      <span>Jul</span>
+                      <span>Sep</span>
+                      <span>Dec</span>
                     </div>
-
                   </div>
 
-                  {/* AI Insight */}
-                  <div className="rounded-xl border border-cyan-400/10 bg-[#0c1426] p-4">
-
+                  {/* Insight */}
+                  <div className="rounded-xl border border-violet-100 bg-gradient-to-br from-violet-50 via-white to-cyan-50 p-4 sm:p-5">
                     <div className="flex items-center gap-2">
-
-                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-cyan-400/10 text-cyan-400">
-                        <Sparkles size={15} />
+                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white text-violet-600 shadow-sm">
+                        <Sparkles size={19} />
                       </div>
-
                       <div>
-                        <div className="text-xs font-semibold text-white">
+                        <h4 className="font-bold text-slate-900">
                           Optiora Insight
-                        </div>
-
-                        <div className="text-[8px] text-slate-500">
-                          Something worth knowing
-                        </div>
+                        </h4>
+                        <p className="text-[10px] text-slate-500">
+                          Example recommendation
+                        </p>
                       </div>
-
                     </div>
 
-                    <div className="mt-5 rounded-lg border border-white/5 bg-white/[0.02] p-3">
+                    <p className="mt-5 text-sm font-semibold leading-6 text-slate-800">
+                      Product A demand may increase by 18% next month.
+                    </p>
 
-                      <p className="text-[10px] leading-5 text-slate-300">
-                        Product A demand is expected to increase
-                        by <span className="font-semibold text-cyan-400">18%</span>{" "}
-                        next month.
-                      </p>
+                    <p className="mt-3 text-xs leading-5 text-slate-500">
+                      Consider reviewing its inventory before your next
+                      restocking cycle.
+                    </p>
 
-                    </div>
-
-                    <div className="mt-4 flex items-start gap-2">
-
-                      <CheckCircle2
-                        size={13}
-                        className="mt-0.5 shrink-0 text-emerald-400"
-                      />
-
-                      <p className="text-[9px] leading-4 text-slate-500">
-                        Consider checking its inventory before
-                        your next restock.
-                      </p>
-
-                    </div>
-
-                    <button className="mt-4 flex items-center gap-1 text-[10px] font-medium text-cyan-400">
-                      View Insight
-                      <ArrowRight size={11} />
-                    </button>
-
-                  </div>
-
-                </div>
-
-                {/* What needs attention */}
-                <div className="mt-3 rounded-xl border border-white/5 bg-[#0c1426] p-4">
-
-                  <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
-
-                    <div>
-                      <div className="text-xs font-semibold text-white">
-                        What needs your attention?
+                    <div className="mt-5 rounded-xl border border-white bg-white/80 p-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs text-slate-500">
+                          Inventory alerts
+                        </span>
+                        <TrendingDown size={16} className="text-amber-600" />
                       </div>
-
-                      <p className="mt-1 text-[9px] text-slate-500">
-                        A quick look at areas that may need action.
+                      <p className="mt-1 text-lg font-bold text-slate-900">
+                        3 products
+                      </p>
+                      <p className="text-[10px] text-slate-500">
+                        Need an inventory review
                       </p>
                     </div>
-
-                    <div className="flex flex-wrap gap-2">
-
-                      <AttentionBadge
-                        label="3 Low Stock"
-                        type="warning"
-                      />
-
-                      <AttentionBadge
-                        label="12 Returning Customers"
-                        type="normal"
-                      />
-
-                      <AttentionBadge
-                        label="2 New Opportunities"
-                        type="success"
-                      />
-
-                    </div>
-
                   </div>
-
                 </div>
-
-              </main>
-
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom message */}
-        <div className="mx-auto mt-10 max-w-2xl text-center">
-
-          <p className="text-sm leading-6 text-slate-400">
-            You don't need to understand every number.
-            <span className="font-medium text-white">
-              {" "}Optiora helps you understand what matters.
-            </span>
-          </p>
-
-        </div>
-
+        <p className="mt-8 text-center text-sm text-slate-500">
+          One view of your data. A clearer starting point for your next decision.
+        </p>
       </div>
     </section>
-  );
-}
-
-/* Small trend icon */
-function TrendingUpIcon() {
-  return (
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-      <polyline points="17 6 23 6 23 12" />
-    </svg>
-  );
-}
-
-/* Attention badge */
-function AttentionBadge({ label, type }) {
-  const styles = {
-    warning:
-      "border-amber-400/10 bg-amber-400/5 text-amber-300",
-    normal:
-      "border-cyan-400/10 bg-cyan-400/5 text-cyan-300",
-    success:
-      "border-emerald-400/10 bg-emerald-400/5 text-emerald-300",
-  };
-
-  return (
-    <div
-      className={`rounded-lg border px-3 py-2 text-[9px] font-medium ${styles[type]}`}
-    >
-      {label}
-    </div>
   );
 }
 

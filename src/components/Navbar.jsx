@@ -31,7 +31,7 @@ function Navbar() {
   ];
 
   return (
-    <nav className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#030712]/80 backdrop-blur-xl">
+    <nav className="fixed left-0 right-0 top-0 z-50 border-b border-blue/10 bg-green-700/80 backdrop-blur-xl">
 
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2.5 lg:px-8">
 
@@ -47,7 +47,7 @@ function Navbar() {
             <a
               key={link.label}
               href={link.href}
-              className="text-sm text-slate-300 transition hover:text-white"
+              className="text-sm text-slate-100 transition hover:text-white"
             >
               {link.label}
             </a>
@@ -61,7 +61,7 @@ function Navbar() {
           {/* Login */}
           <Link
             to="/login"
-            className="text-sm text-slate-300 transition hover:text-white"
+            className="text-sm text-slate-100 transition hover:text-white"
           >
             Login
           </Link>
@@ -111,7 +111,7 @@ function Navbar() {
             <Link
               to="/login"
               onClick={() => setMobileOpen(false)}
-              className="text-slate-300"
+              className="text-slate-100 hover:text-cyan-400"
             >
               Login
             </Link>
