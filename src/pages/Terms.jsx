@@ -126,31 +126,31 @@ const termsSections = [
 
 function Terms() {
   return (
-    <div className="min-h-screen bg-[#030712] text-white">
+    <div className="min-h-screen bg-white text-black">
       {/* Navbar */}
-      <header className="border-b border-white/10 bg-[#030712]/90 backdrop-blur-xl">
+      <header className="border-b border-white/10 bg-green-800/90 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
           <Link to="/" className="text-xl font-bold tracking-tight">
             <span className="text-cyan-400">◉</span> Optiora.
           </Link>
 
-          <nav className="hidden items-center gap-8 text-sm text-slate-400 md:flex">
+          <nav className="hidden items-center gap-8 text-sm text-slate-100 md:flex">
             <Link to="/" className="hover:text-white">
               Home
             </Link>
-            <a href="/#product" className="hover:text-white">
+            <a href="/#product" className="hover:text-orange-400">
               Features
             </a>
-            <a href="/#how-it-works" className="hover:text-white">
+            <a href="/#how-it-works" className="hover:text-orange-400">
               How It Works
             </a>
-            <a href="/#pricing" className="hover:text-white">
+            <a href="/#pricing" className="hover:text-orange-400">
               Pricing
             </a>
-            <Link to="/about" className="hover:text-white">
+            <Link to="/about" className="hover:text-orange-400">
               About
             </Link>
-            <Link to="/blog" className="hover:text-white">
+            <Link to="/blog" className="hover:text-orange-400">
               Blog
             </Link>
           </nav>
@@ -227,7 +227,7 @@ function Terms() {
 
       {/* Content */}
       <main className="mx-auto max-w-5xl px-6 py-16 lg:px-8">
-        <div className="mb-10 rounded-2xl border border-white/10 bg-white/[0.025] p-6 text-sm leading-7 text-slate-400">
+        <div className="mb-10 rounded-2xl border border-white/10 bg-white/[0.025] p-6 text-sm leading-7 text-black">
           By accessing or using Optiora, you acknowledge that you have read
           and understood these Terms & Conditions. These terms are intended to
           describe the general rules governing use of the platform.
@@ -240,7 +240,7 @@ function Terms() {
             return (
               <section
                 key={section.number}
-                className="rounded-2xl border border-white/10 bg-white/[0.025] p-6 transition hover:border-cyan-400/20 sm:p-8"
+                className="rounded-2xl border border-green-700 bg-white/[0.025] p-6 transition hover:border-cyan-400/20 sm:p-8"
               >
                 <div className="flex gap-5">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cyan-400 text-sm font-bold text-[#030712]">
@@ -256,7 +256,7 @@ function Terms() {
                       </h2>
                     </div>
 
-                    <p className="mt-4 text-sm leading-7 text-slate-400">
+                    <p className="mt-4 text-sm leading-7 text-black">
                       {section.content}
                     </p>
 

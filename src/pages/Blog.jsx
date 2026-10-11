@@ -150,7 +150,7 @@ export default function Blog() {
   );
 
   return (
-    <div className="min-h-screen bg-[#030712] text-white">
+    <div className="min-h-screen bg-white text-black">
 
       {/* ================= HEADER ================= */}
       <header className="border-b border-white/10 bg-[#030712]/90 backdrop-blur-xl">
@@ -210,7 +210,7 @@ export default function Blog() {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search articles..."
-                className="w-full bg-transparent px-3 py-4 text-sm text-white outline-none placeholder:text-gray-600"
+                className="w-full bg-transparent px-3 py-4 text-sm text-black outline-none placeholder:text-gray-600 border-spacing-1"
               />
 
             </div>
