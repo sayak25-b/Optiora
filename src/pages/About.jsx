@@ -1,4 +1,4 @@
-
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 import {
   FaChartLine,
@@ -6,6 +6,7 @@ import {
   FaUsers,
   FaBoxes,
   FaBullseye,
+  FaChevronLeft, FaChevronRight,
   FaEye,
    FaGithub,
   FaLinkedinIn,
@@ -129,6 +130,7 @@ const SectionHeading = ({ eyebrow, title, description }) => (
 );
 
 export default function About() {
+   const [teamIndex, setTeamIndex] = useState(0);
   return (
     <div className="min-h-screen overflow-x-clip bg-[#F8FAFC] text-slate-900">
       <Navbar />
@@ -399,44 +401,166 @@ export default function About() {
           </div>
         </section>
 
-{/* Team Section */}
-<section className="bg-[#F8FAFC] px-5 py-16 sm:px-8 sm:py-20 lg:px-10">
-  <div className="mx-auto w-full max-w-7xl">
-    <SectionHeading
-      eyebrow="MEET THE TEAM"
-      title="The People Behind Optiora"
-      description="Meet the team working together across development, machine learning, and testing to build Optiora."
-    />
 
-    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+{/* Team Section */}
+<section id="team" className="bg-slate-50 py-20 sm:py-24">
+  <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div className="mb-10 text-center sm:mb-14">
+      <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-cyan-600">
+        Meet Our Team
+      </p>
+
+      <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+        The People Behind{" "}
+        <span className="text-cyan-600">Optiora</span>
+      </h2>
+
+      <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
+        A team of developers working together to build intelligent
+        business analytics and growth solutions.
+      </p>
+    </div>
+
+    {/* Mobile Carousel */}
+    <div className="md:hidden">
+      <div className="mx-auto max-w-sm">
+        <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg">
+          <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+            <img
+              src={team[teamIndex].image}
+              alt={team[teamIndex].name}
+              className="h-full w-full object-cover object-center"
+            />
+          </div>
+
+          <div className="p-6 text-center">
+            <h3 className="text-xl font-bold text-slate-900">
+              {team[teamIndex].name}
+            </h3>
+
+            <p className="mt-2 min-h-10 text-sm font-semibold text-cyan-600">
+              {team[teamIndex].role}
+            </p>
+
+            <p className="mt-3 min-h-16 text-sm leading-6 text-slate-600">
+              {team[teamIndex].description}
+            </p>
+
+            <div className="mt-5 flex justify-center gap-5">
+              {team[teamIndex].github &&
+                team[teamIndex].github !== "#" && (
+                  <a
+                    href={team[teamIndex].github}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="GitHub profile"
+                    className="text-slate-500 transition hover:text-cyan-600"
+                  >
+                    <FaGithub size={20} />
+                  </a>
+                )}
+
+              {team[teamIndex].linkedin &&
+                team[teamIndex].linkedin !== "#" &&
+                team[teamIndex].linkedin !== "https://www.linkedin.com/" && (
+                  <a
+                    href={team[teamIndex].linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="LinkedIn profile"
+                    className="text-slate-500 transition hover:text-cyan-600"
+                  >
+                    <FaLinkedinIn size={20} />
+                  </a>
+                )}
+
+              {team[teamIndex].email && (
+                <a
+                  href={team[teamIndex].email}
+                  aria-label="Email team member"
+                  className="text-slate-500 transition hover:text-cyan-600"
+                >
+                  <FaEnvelope size={20} />
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Carousel Controls */}
+        <div className="mt-6 flex items-center justify-between">
+          <button
+            type="button"
+            onClick={() =>
+              setTeamIndex((prev) =>
+                prev === 0 ? team.length - 1 : prev - 1
+              )
+            }
+            aria-label="Previous team member"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-600 active:scale-95"
+          >
+            <FaChevronLeft />
+          </button>
+
+          <div className="flex items-center gap-2">
+            {team.map((member, index) => (
+              <button
+                key={member.name}
+                type="button"
+                onClick={() => setTeamIndex(index)}
+                aria-label={`Show ${member.name}`}
+                aria-current={index === teamIndex ? "true" : undefined}
+                className={`h-2.5 rounded-full transition-all duration-300 ${
+                  index === teamIndex
+                    ? "w-7 bg-cyan-600"
+                    : "w-2.5 bg-slate-300 hover:bg-slate-400"
+                }`}
+              />
+            ))}
+          </div>
+
+          <button
+            type="button"
+            onClick={() =>
+              setTeamIndex((prev) =>
+                prev === team.length - 1 ? 0 : prev + 1
+              )
+            }
+            aria-label="Next team member"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-600 active:scale-95"
+          >
+            <FaChevronRight />
+          </button>
+        </div>
+
+        <p className="mt-3 text-center text-xs text-slate-500">
+          {teamIndex + 1} of {team.length} team members
+        </p>
+      </div>
+    </div>
+
+    {/* Desktop Grid */}
+    <div className="hidden grid-cols-2 gap-6 md:grid lg:grid-cols-4">
       {team.map((member) => (
         <article
           key={member.name}
-          className="group flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300 hover:shadow-xl hover:shadow-slate-200/60"
+          className="flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
         >
-          {/* Full-width image */}
-          <div className="relative aspect-[2/3] w-full overflow-hidden bg-slate-100">
+          <div className="aspect-[2/3] overflow-hidden bg-slate-100">
             <img
               src={member.image}
               alt={member.name}
               loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+              className="h-full w-full object-cover object-center transition duration-500 hover:scale-105"
             />
-
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent" />
-
-            <span className="absolute bottom-3 left-3 rounded-full border border-white/40 bg-white/90 px-3 py-1 text-xs font-semibold text-slate-800 backdrop-blur">
-              Optiora Team
-            </span>
           </div>
 
-          {/* Member details */}
-          <div className="flex flex-1 flex-col p-5 sm:p-6">
-            <h3 className="break-words text-lg font-bold leading-snug text-slate-900">
+          <div className="flex flex-1 flex-col p-5">
+            <h3 className="text-lg font-bold text-slate-900">
               {member.name}
             </h3>
 
-            <p className="mt-2 min-h-[40px] text-sm font-semibold leading-5 text-cyan-700">
+            <p className="mt-2 min-h-10 text-sm font-semibold text-cyan-600">
               {member.role}
             </p>
 
@@ -444,62 +568,42 @@ export default function About() {
               {member.description}
             </p>
 
-            {/* Social icons attached to card bottom */}
-            <div className="mt-5 flex items-center gap-3 border-t border-slate-100 pt-4">
-              {[
-                {
-                  label: "GitHub",
-                  href: member.github,
-                  Icon: FaGithub,
-                },
-                {
-                  label: "LinkedIn",
-                  href: member.linkedin,
-                  Icon: FaLinkedinIn,
-                },
-                {
-                  label: "Email",
-                  href: member.email,
-                  Icon: FaEnvelope,
-                },
-              ].map(({ label, href, Icon }) => {
-                const disabled = !href || href === "#";
+            <div className="mt-5 flex gap-4">
+              {member.github && member.github !== "#" && (
+                <a
+                  href={member.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${member.name} GitHub`}
+                  className="text-slate-500 transition hover:text-cyan-600"
+                >
+                  <FaGithub size={19} />
+                </a>
+              )}
 
-                return (
+              {member.linkedin &&
+                member.linkedin !== "#" &&
+                member.linkedin !== "https://www.linkedin.com/" && (
                   <a
-                    key={label}
-                    href={disabled ? undefined : href}
-                    target={
-                      !disabled && href.startsWith("http")
-                        ? "_blank"
-                        : undefined
-                    }
-                    rel={
-                      !disabled && href.startsWith("http")
-                        ? "noopener noreferrer"
-                        : undefined
-                    }
-                    aria-label={`${label} - ${member.name}`}
-                    title={disabled ? `${label} link not added` : label}
-                    onClick={
-                      disabled
-                        ? (event) => event.preventDefault()
-                        : undefined
-                    }
-                    className={`flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 transition ${
-                      disabled
-                        ? "cursor-not-allowed bg-slate-50 text-slate-300"
-                        : "bg-white text-slate-600 hover:border-cyan-300 hover:bg-cyan-50 hover:text-cyan-700"
-                    }`}
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${member.name} LinkedIn`}
+                    className="text-slate-500 transition hover:text-cyan-600"
                   >
-                    <Icon className="text-base" />
+                    <FaLinkedinIn size={19} />
                   </a>
-                );
-              })}
+                )}
 
-              <span className="ml-auto text-xs font-medium text-slate-400">
-                Team Member
-              </span>
+              {member.email && (
+                <a
+                  href={member.email}
+                  aria-label={`Email ${member.name}`}
+                  className="text-slate-500 transition hover:text-cyan-600"
+                >
+                  <FaEnvelope size={19} />
+                </a>
+              )}
             </div>
           </div>
         </article>
