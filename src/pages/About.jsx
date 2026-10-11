@@ -402,11 +402,15 @@ export default function About() {
         </section>
 
 
+
+
 {/* Team Section */}
-<section id="team" className="bg-slate-50 py-20 sm:py-24">
+<section id="team" className="bg-slate-50 py-16 sm:py-20 lg:py-24">
   <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+    {/* Section Heading */}
     <div className="mb-10 text-center sm:mb-14">
-      <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-cyan-600">
+      <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-cyan-600 sm:text-sm">
         Meet Our Team
       </p>
 
@@ -424,8 +428,13 @@ export default function About() {
     {/* Mobile Carousel */}
     <div className="md:hidden">
       <div className="mx-auto max-w-sm">
-        <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg">
-          <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+
+        <article
+          key={team[teamIndex].name}
+          className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg"
+        >
+          {/* Member Image */}
+          <div className="relative aspect-[3/3] overflow-hidden bg-slate-100">
             <img
               src={team[teamIndex].image}
               alt={team[teamIndex].name}
@@ -433,59 +442,59 @@ export default function About() {
             />
           </div>
 
+          {/* Member Details */}
           <div className="p-6 text-center">
             <h3 className="text-xl font-bold text-slate-900">
               {team[teamIndex].name}
             </h3>
 
-            <p className="mt-2 min-h-10 text-sm font-semibold text-cyan-600">
+            <p className="mt-2 text-sm font-semibold text-cyan-600">
               {team[teamIndex].role}
             </p>
 
-            <p className="mt-3 min-h-16 text-sm leading-6 text-slate-600">
+            <p className="mt-3 min-h-[72px] text-sm leading-6 text-slate-600">
               {team[teamIndex].description}
             </p>
 
-            <div className="mt-5 flex justify-center gap-5">
-              {team[teamIndex].github &&
-                team[teamIndex].github !== "#" && (
-                  <a
-                    href={team[teamIndex].github}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="GitHub profile"
-                    className="text-slate-500 transition hover:text-cyan-600"
-                  >
-                    <FaGithub size={20} />
-                  </a>
-                )}
+            {/* Social Icons - Always Visible */}
+            <div className="mt-5 flex items-center justify-center gap-3 border-t border-slate-100 pt-5">
+              <a
+                href={team[teamIndex].github !== "#" ? team[teamIndex].github : undefined}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                title="GitHub"
+                className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 transition hover:-translate-y-1 hover:border-slate-400 hover:bg-slate-100"
+              >
+                <FaGithub size={18} />
+              </a>
 
-              {team[teamIndex].linkedin &&
-                team[teamIndex].linkedin !== "#" &&
-                team[teamIndex].linkedin !== "https://www.linkedin.com/" && (
-                  <a
-                    href={team[teamIndex].linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="LinkedIn profile"
-                    className="text-slate-500 transition hover:text-cyan-600"
-                  >
-                    <FaLinkedinIn size={20} />
-                  </a>
-                )}
+              <a
+                href={
+                  team[teamIndex].linkedin !== "https://www.linkedin.com/"
+                    ? team[teamIndex].linkedin
+                    : undefined
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                title="LinkedIn"
+                className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-sky-700 transition hover:-translate-y-1 hover:border-sky-300 hover:bg-sky-50"
+              >
+                <FaLinkedinIn size={18} />
+              </a>
 
-              {team[teamIndex].email && (
-                <a
-                  href={team[teamIndex].email}
-                  aria-label="Email team member"
-                  className="text-slate-500 transition hover:text-cyan-600"
-                >
-                  <FaEnvelope size={20} />
-                </a>
-              )}
+              <a
+                href={team[teamIndex].email}
+                aria-label="Email"
+                title="Email"
+                className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-cyan-700 transition hover:-translate-y-1 hover:border-cyan-300 hover:bg-cyan-50"
+              >
+                <FaEnvelope size={18} />
+              </a>
             </div>
           </div>
-        </div>
+        </article>
 
         {/* Carousel Controls */}
         <div className="mt-6 flex items-center justify-between">
@@ -497,7 +506,7 @@ export default function About() {
               )
             }
             aria-label="Previous team member"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-600 active:scale-95"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-700"
           >
             <FaChevronLeft />
           </button>
@@ -509,11 +518,10 @@ export default function About() {
                 type="button"
                 onClick={() => setTeamIndex(index)}
                 aria-label={`Show ${member.name}`}
-                aria-current={index === teamIndex ? "true" : undefined}
-                className={`h-2.5 rounded-full transition-all duration-300 ${
+                className={`h-2.5 rounded-full transition-all ${
                   index === teamIndex
                     ? "w-7 bg-cyan-600"
-                    : "w-2.5 bg-slate-300 hover:bg-slate-400"
+                    : "w-2.5 bg-slate-300"
                 }`}
               />
             ))}
@@ -527,7 +535,7 @@ export default function About() {
               )
             }
             aria-label="Next team member"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-600 active:scale-95"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-700"
           >
             <FaChevronRight />
           </button>
@@ -539,14 +547,15 @@ export default function About() {
       </div>
     </div>
 
-    {/* Desktop Grid */}
+    {/* Desktop / Tablet Grid */}
     <div className="hidden grid-cols-2 gap-6 md:grid lg:grid-cols-4">
       {team.map((member) => (
         <article
           key={member.name}
-          className="flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+          className="flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-cyan-200 hover:shadow-xl"
         >
-          <div className="aspect-[2/3] overflow-hidden bg-slate-100">
+          {/* Member Image */}
+          <div className="relative aspect-[3/3] overflow-hidden bg-slate-100">
             <img
               src={member.image}
               alt={member.name}
@@ -555,8 +564,9 @@ export default function About() {
             />
           </div>
 
+          {/* Member Details */}
           <div className="flex flex-1 flex-col p-5">
-            <h3 className="text-lg font-bold text-slate-900">
+            <h3 className="text-lg font-bold leading-snug text-slate-900">
               {member.name}
             </h3>
 
@@ -568,42 +578,42 @@ export default function About() {
               {member.description}
             </p>
 
-            <div className="mt-5 flex gap-4">
-              {member.github && member.github !== "#" && (
-                <a
-                  href={member.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`${member.name} GitHub`}
-                  className="text-slate-500 transition hover:text-cyan-600"
-                >
-                  <FaGithub size={19} />
-                </a>
-              )}
+            {/* Social Icons - Always Visible */}
+            <div className="mt-5 flex items-center gap-3 border-t border-slate-100 pt-4">
+              <a
+                href={member.github !== "#" ? member.github : undefined}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${member.name} GitHub`}
+                title="GitHub"
+                className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 transition hover:-translate-y-1 hover:border-slate-400 hover:bg-slate-100"
+              >
+                <FaGithub size={17} />
+              </a>
 
-              {member.linkedin &&
-                member.linkedin !== "#" &&
-                member.linkedin !== "https://www.linkedin.com/" && (
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`${member.name} LinkedIn`}
-                    className="text-slate-500 transition hover:text-cyan-600"
-                  >
-                    <FaLinkedinIn size={19} />
-                  </a>
-                )}
+              <a
+                href={
+                  member.linkedin !== "https://www.linkedin.com/"
+                    ? member.linkedin
+                    : undefined
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${member.name} LinkedIn`}
+                title="LinkedIn"
+                className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-sky-700 transition hover:-translate-y-1 hover:border-sky-300 hover:bg-sky-50"
+              >
+                <FaLinkedinIn size={17} />
+              </a>
 
-              {member.email && (
-                <a
-                  href={member.email}
-                  aria-label={`Email ${member.name}`}
-                  className="text-slate-500 transition hover:text-cyan-600"
-                >
-                  <FaEnvelope size={19} />
-                </a>
-              )}
+              <a
+                href={member.email}
+                aria-label={`Email ${member.name}`}
+                title="Email"
+                className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-cyan-700 transition hover:-translate-y-1 hover:border-cyan-300 hover:bg-cyan-50"
+              >
+                <FaEnvelope size={17} />
+              </a>
             </div>
           </div>
         </article>
@@ -612,26 +622,31 @@ export default function About() {
   </div>
 </section>
 
-        {/* Mentor */}
-        <section className="px-5 pb-16 sm:px-8 sm:pb-20 lg:px-10">
-          <div className="mx-auto w-full max-w-5xl rounded-3xl border border-slate-200 bg-white p-7 text-center shadow-sm sm:p-10 lg:p-12">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-700">
-              ACADEMIC GUIDANCE
-            </span>
-            <h2 className="mt-3 text-2xl font-extrabold sm:text-3xl">
-              Project Mentor
-            </h2>
-            <p className="mt-4 text-lg font-semibold text-slate-800">
-              Prof. Suity Roy
-            </p>
-            <p className="mt-2 text-sm leading-6 text-slate-600">
-              Department of Computer Science & Engineering
-            </p>
-            <p className="text-sm leading-6 text-slate-600">
-              College of Engineering & Management, Kolaghat
-            </p>
-          </div>
-        </section>
+{/* Mentor Section */}
+<section className="px-5 pb-16 sm:px-8 sm:pb-20 lg:px-10">
+  <div className="mx-auto w-full max-w-5xl rounded-3xl border border-slate-200 bg-white p-7 text-center shadow-sm sm:p-10 lg:p-12">
+    <span className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-700">
+      Academic Guidance
+    </span>
+
+    <h2 className="mt-3 text-2xl font-extrabold text-slate-900 sm:text-3xl">
+      Project Mentor
+    </h2>
+
+    <p className="mt-4 text-lg font-semibold text-slate-800">
+      Prof. Suity Roy
+    </p>
+
+    <p className="mt-2 text-sm leading-6 text-slate-600">
+      Department of Computer Science & Engineering
+    </p>
+
+    <p className="text-sm leading-6 text-slate-600">
+      College of Engineering & Management, Kolaghat
+    </p>
+  </div>
+</section>
+
 
         {/* CTA */}
         <section className="px-5 pb-16 sm:px-8 sm:pb-20 lg:px-10">
